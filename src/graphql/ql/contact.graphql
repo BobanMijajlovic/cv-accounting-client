@@ -1,0 +1,5 @@
+mutation updateContact($id:Int!, $data: ContactType!) {
+    contact:updateContact(id:$id, data: $data) {
+        ...contactDetails
+    }
+}

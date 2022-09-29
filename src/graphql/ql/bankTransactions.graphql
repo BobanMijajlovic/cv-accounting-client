@@ -1,0 +1,40 @@
+query bankAccountFilter($value: String!) {
+    data: bankAccountFilter(value: $value) {
+            ...bankAccountDetails
+        }
+}
+
+query bankTransactions($limit: Int,$offset: Int, $page: Int, $perPage: Int, $sort: Sorting, $filter: JSON  ,$include: JSON) {
+    data: bankTransactions(limit:$limit,offset:$offset, page: $page, perPage:$perPage, sort:$sort, filter:$filter,include: $include) {
+        items{
+            ...bankTransactionDetails
+        }
+        count
+        perPage
+        page
+    }
+}
+
+
+mutation insertBankTransactions($data: [BankTransactionItemType!]!,$bankHeaderTransactionId: Int!){
+    bankHeaderTransaction:insertBankTransactions(data:$data,bankHeaderTransactionId:$bankHeaderTransactionId){
+        ...bankHeaderTransactionDetails
+    }
+}
+
+mutation updateBankTransaction($id: Int!,$data: BankTransactionItemType!){
+    bankHeaderTransaction:updateBankTransaction(id: $id,data:$data){
+        ...bankHeaderTransactionDetails
+    }
+}
+
+
+mutation deleteBankTransaction($id: Int!){
+    data:deleteBankTransaction(id: $id){
+        ...bankHeaderTransactionDetails
+    }
+}
+
+
+
+

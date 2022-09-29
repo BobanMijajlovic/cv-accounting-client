@@ -1,0 +1,332 @@
+$c-calendar-cell-width: 38px;
+$c-calendar-font-size: $c-font-size;
+$c-calendar-font-size-header: calc(#{$c-font-size} - 1px);
+$c-calendar-height-data: 260px;
+$c-calendar-width-data: 270px;
+
+
+@keyframes scroll-down {
+  0% {
+    opacity: 0;
+    -webkit-transform: scaleY(.3);
+    transform: scaleY(.3);
+    }
+
+  30% {
+    opacity: 1;
+    }
+  }
+
+.hw-calendar-root {
+  @include no-user-select;
+  border: 1px solid #f3f3f3;
+  padding: 1px;
+  overflow: hidden;
+  background: white;
+  z-index: 501;
+  display: none;
+
+  &.hw-calendar-popover {
+    @include box-shadow-open;
+    position: absolute;
+    -webkit-animation: scroll-down .36s;
+    -webkit-transform-origin: left top 0;
+    animation: scroll-down .36s;
+    transform-origin: left top 0;
+
+    &.hw-calendar-popover-above {
+      transform-origin: left bottom 0;
+      }
+    }
+
+  &.hw-calendar-show {
+    display: block;
+    }
+  }
+
+.hw-calendar-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: $c-calendar-height-data;
+  min-width: $c-calendar-width-data;
+  }
+
+
+.hw-calendar-panel-data {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: $c-calendar-cell-width;
+  font-size: $c-calendar-font-size;
+  color: theme-var($--color-primary-font);
+  cursor: pointer;
+
+  &.disabled {
+    opacity: 0.4;
+  }
+
+  &:not(.hw-calendar-header) {
+    border: 1px solid #f9f9f9;
+    padding: 6px;
+
+    &:hover:not(.disabled) {
+      @include color-gradient-hover;
+      transform: scale(1.05);
+      }
+    }
+
+  &.hw-calendar-header {
+    border-top: 1px solid white;
+    font-size: $c-calendar-font-size-header;
+    background: theme-var($--color-primary);
+    color: white;
+    text-shadow: 0px 1px 1px black;
+    }
+
+  &.active {
+    position: relative;
+    //color: theme-var($--color-primary);
+    opacity: 0.8;
+    //text-shadow: 1px 1px 1px black;
+    &::before {
+      width: 30px;
+      height: 30px;
+      content: ' ';
+      position: absolute;
+      border: 1px solid theme-var($--color-secondary);
+      // box-shadow: inset 0px 0px 10px theme-var($--color-secondary);
+      box-shadow: inset 0px 0px 5px theme-var($--color-primary), 1px 1px 3px -1px;
+      background: transparent;
+      background: transparent;
+      border-radius: 15px;
+      }
+
+    &.hw-calendar-year {
+      &::before {
+        width: 46px;
+        height: 46px;
+        border-radius: 23px;
+        }
+      }
+
+    &.hw-calendar-month {
+      &::before {
+        width: 60px;
+        height: 60px;
+        border-radius: 30px;
+        }
+      }
+
+    }
+
+  }
+
+
+.hw-calendar-data-rows {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex: 1;
+  overflow: hidden;
+
+
+  &.hw-calendar-years-control {
+    display: flex;
+    border-top: 1px solid #eee;
+
+    > div {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex: 1;
+      cursor: not-allowed;
+
+      &.hw-control-year-button {
+        flex: 2;
+        font-size: calc(#{$c-calendar-font-size} - 2px);
+        border-bottom: 1px solid #eee;
+        display: flex;
+        padding: 0px;
+        cursor: pointer;
+        margin: 4px;
+        //border-radius: 4px;
+        //border: 0.5px solid theme-var($--color-primary);
+        position: relative;
+
+        &::before {
+          width: 100%;
+          height: 100%;
+          content: ' ';
+          position: absolute;
+          //border:  1px solid theme-var($--color-secondary);
+          box-shadow: inset 0px 0px 5px theme-var($--color-secondary), 3px 4px 4px -5px black;
+          background: transparent;
+          border-radius: 3px;
+          }
+
+        &::after {
+          content: "";
+          width: 95%;
+          height: 85%;
+          position: absolute;
+          //border:  1px solid theme-var($--color-secondary);
+          background: transparent;
+          border-radius: 3px;
+          }
+
+        &:hover {
+          transform: scale(1.03);
+          outline: none;
+          }
+
+        > div {
+          flex: 2;
+          padding: 0px;
+          display: flex;
+          justify-content: space-around;
+
+          &:nth-child(2) {
+            flex: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+.hw-calendar-top-header {
+  font-size: calc(#{$c-calendar-font-size});
+  display: flex;
+  flex-direction: column;
+  background: theme-var($--color-primary);
+  color: white;
+
+  .hw-calendar-top-day {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 1px 0px 3px 0px;
+    cursor: pointer;
+    font-size: calc(#{$c-calendar-font-size} + 10%);
+    text-shadow: 0px 1px 1px black;
+
+    > div {
+      padding: 0px 4px;
+
+      &:nth-child(2) {
+        font-size: calc(#{$c-calendar-font-size} + 15%);
+        }
+      }
+    }
+
+  .hw-calendar-top-month {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: 4px;
+    text-shadow: 0px 1px 1px black;
+
+    div {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      }
+
+    > div {
+      flex: 1;
+
+      &:nth-child(2) {
+        flex: 8;
+        }
+      }
+
+    .hw-calendar-button-move {
+      flex: 1;
+      justify-content: flex-start;
+      cursor: pointer;
+      filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.7));
+
+      &:last-child {
+        justify-content: flex-end;
+        }
+
+      &:hover {
+        > svg {
+          transform: scale(1.25);
+          }
+        }
+      }
+
+    .hw-calendar-top-data-part {
+      cursor: pointer;
+      flex: 4;
+
+      > div {
+        flex: 3;
+
+        &:last-child {
+          flex: 1;
+          }
+        }
+
+      }
+    }
+  }
+
+.hw-calendar-top-header1 {
+  font-size: calc(#{$c-calendar-font-size});
+  line-height: 0.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 10px 6px;
+  color: white;
+  background: theme-var($--color-primary);
+
+  > div {
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+
+    > div {
+      padding: 0px 3px;
+      }
+
+    &:not(.hw-calendar-top-day) {
+      > div {
+        &:hover {
+          text-shadow: 0.8px 0.8px 1px #111;
+          transform: scale(1.07);
+          }
+        }
+      }
+
+    &.hw-calendar-top-day {
+      justify-content: flex-start;
+      align-items: flex-end;
+
+      > div {
+        padding: 0px 2px;
+        font-size: calc(#{$c-calendar-font-size} + 25%);
+
+        &:first-child {
+          font-size: calc(#{$c-calendar-font-size} + 10%);
+          }
+        }
+
+      &:hover {
+        > div {
+          text-shadow: 0.5px 0.5px 1px #111;
+          transform: scale(1.05);
+          }
+        }
+      }
+    }
+  }
+
+

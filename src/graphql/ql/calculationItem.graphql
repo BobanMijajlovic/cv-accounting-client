@@ -1,0 +1,12 @@
+
+mutation insertUpdateCalculationItem($id: Int!,$data: CalculationItemType!,$calcId: Int!){
+    calculation: insertUpdateCalculationItem(id: $id,data:$data,calcId: $calcId){
+        ...calculationDetails
+    }
+}
+
+mutation deleteCalculationItem($id: Int!,$calcId: Int!){
+    calculation: deleteCalculationItem(id: $id,calcId: $calcId){
+        ...calculationDetails
+    }
+}

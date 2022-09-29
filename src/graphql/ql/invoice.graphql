@@ -1,0 +1,47 @@
+query invoices($limit: Int,$offset: Int, $page: Int, $perPage: Int, $sort: Sorting, $filter: JSON  ,$include: JSON) {
+    data: invoices(limit:$limit,offset:$offset, page: $page, perPage:$perPage, sort:$sort, filter:$filter,include: $include) {
+        items{
+            ...invoiceDetails
+        }
+        count
+        perPage
+        page
+    }
+}
+
+query invoice($id: Int!){
+    invoice:invoice(id:$id) {
+        ...invoiceDetails
+    }
+}
+
+mutation insertInvoice($data: InvoiceType!){
+    invoice:insertInvoice(data:$data){
+        ...invoiceDetails
+    }
+}
+
+mutation updateInvoice($id: Int!,$data: InvoiceType!){
+    invoice:updateInvoice(id:$id,data:$data){
+        ...invoiceDetails
+    }
+}
+
+mutation insertUpdateInvoiceItem($additionalData: InvoiceAdditionalType!,$id: Int!,$data: InvoiceItemType!){
+    invoice: insertUpdateInvoiceItem(additionalData: $additionalData,id:$id,data:$data){
+        ...invoiceDetails
+    }
+}
+
+mutation deleteInvoiceItem($additionalData: InvoiceAdditionalType!,$id: Int!){
+    invoice: deleteInvoiceItem(id: $id,additionalData: $additionalData){
+        ...invoiceDetails
+    }
+}
+
+
+mutation insertInvoiceVersion($data: InvoiceVersionType!) {
+    invoiceVersion: insertInvoiceVersion(data:$data) {
+        ...invoiceVersionDetails
+    }
+}

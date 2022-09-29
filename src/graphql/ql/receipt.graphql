@@ -1,0 +1,23 @@
+query receipts($limit: Int,$offset: Int, $page: Int, $perPage: Int, $sort: Sorting, $filter: JSON, $include: JSON ) {
+    data: receipts(limit:$limit,offset:$offset, page: $page, perPage:$perPage, sort:$sort, filter:$filter, include: $include) {
+        items{
+            ...receiptDetails
+        }
+        count
+        perPage
+        page
+    }
+}
+
+
+query receipt($id: Int!){
+    receipt:receipt(id:$id) {
+        ...receiptDetails
+    }
+}
+
+mutation insertReceipt($data: ReceiptType!){
+    receipt:insertReceipt(data:$data){
+        ...receiptDetails
+    }
+}

@@ -1,0 +1,94 @@
+
+.hw-root {
+  display: block;
+  //position: absolute;
+  @keyframes animation-hw {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+      }
+    45% {
+      transform: scale(0.1);
+      opacity: 0.7;
+      }
+    80% {
+      transform: scale(1);
+      opacity: 1;
+      }
+    }
+
+
+  .hw-1 {
+    background-color: rgb(16, 45, 83);
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    margin: 2px;
+    border-radius: 100%;
+    animation: 0.75s cubic-bezier(0.2, 0.68, 0.18, 1.08) 0.12s infinite normal both running animation-hw;
+    }
+
+  .hw-2 {
+    background-color: rgb(16, 45, 83);
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    margin: 2px;
+    border-radius: 100%;
+    animation: 0.75s cubic-bezier(0.2, 0.68, 0.18, 1.08) 0.24s infinite normal both running animation-hw;
+    }
+
+  .hw-3 {
+    background-color: rgb(16, 45, 83);
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    margin: 2px;
+    border-radius: 100%;
+    animation: 0.75s cubic-bezier(0.2, 0.68, 0.18, 1.08) 0.36s infinite normal both running animation-hw;
+    }
+  }
+
+// SPINNER 1
+
+.hw-back-drop {
+  background: rgba(164, 164, 164, 0.18);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9001;
+  }
+
+
+.hw-spinner {
+  position: absolute;
+
+  > svg {
+    filter: drop-shadow(-2px 2px 2px rgba(0, 0, 0, 0.9));
+    color: theme-var($--color-primary);
+    opacity: 0.9;
+    }
+  }
+
+.hw-spinner-center {
+  position: absolute;
+  background: rgba(192, 192, 192, 0.2);
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 20000;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: space-around;
+
+  .hw-spinner-center-inner {
+    > svg {
+      filter: drop-shadow(-1px 2px 2px #333);
+      color: theme-var($--color-secondary);
+      }
+    }
+  }

@@ -1,0 +1,14 @@
+query banks {
+    data: banks {
+        ...bankDetails
+    }
+}
+
+query bank($id: Int!) {
+    bank: bank(id: $id) {
+        ...bankDetails
+    }
+}
+
+
+

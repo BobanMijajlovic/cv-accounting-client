@@ -1,0 +1,98 @@
+.react-checkbox-tree {
+
+  > {
+    ol:first-of-type {
+      padding: 0;
+    }
+  }
+
+  ol, ul {
+    margin: 0;
+    list-style-type: none;
+  }
+
+
+  &.rct-icons-fa5 {
+
+    &.rct-native-display {
+      input {
+        display: none;
+        margin: 0 5px;
+      }
+    }
+
+    .rct-collapse {
+      outline: none;
+      border: 0;
+      background: none;
+      line-height: normal;
+      color: inherit;
+      font-size: 12px;
+
+      &.rct-collapse-btn {
+        cursor: pointer;
+      }
+
+      > .rct-icon-expand-close {
+        opacity: .5;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+
+    .rct-icon {
+      margin-right: 2px;
+      width: 15px;
+      height: 15px;
+      color: theme-var($--color-primary);
+    }
+
+    .rct-options {
+       padding: 10px 0px;
+
+      .rct-option {
+        border: none;
+        color: #fff;
+        background-color: var(--color-primary);
+        padding: 4px 8px;
+        font-size: 14px;
+        min-width: 80px;
+        position: relative;
+        display: inline-block;
+        white-space: nowrap;
+        vertical-align: middle;
+        text-align: center;
+        line-height: 1.5;
+        border-radius: 3px;
+        box-shadow: 0 4px 6px -6px #000;
+        font-weight: 500;
+        margin-right: 15px;
+
+          svg {
+            color: white;
+            margin-left: 5px;
+          }
+      }
+    }
+
+  }
+
+  .rct-node {
+    &.rct-disabled {
+      > {
+        span:first-of-type {
+          color: theme-var($--color-secondary);
+          .rct-checkbox{
+            opacity: 0.6;
+            cursor: not-allowed;
+          }
+        }
+      }
+
+
+    }
+  }
+
+}

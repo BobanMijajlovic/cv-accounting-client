@@ -1,0 +1,85 @@
+$c-radio-component-size: 23px;
+$c-radio-component-inner: $c-radio-component-size - 6;
+
+.hw-radio-root {
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  width: 100%;
+  @include no-user-select;
+  @include flex-directions;
+  @include component-disabled;
+  }
+
+.hw-radio-data {
+  cursor: pointer;
+  @include component-disabled;
+}
+
+.hw-radio-tabs {
+ flex: 2;
+  color: theme-var($--color-primary-font);
+}
+
+
+.hw-radio-label {
+  color: theme-var($--color-primary-font);
+  font-size: $c-font-input-size;
+}
+
+
+.hw-radio-root {
+  &.flex-direction-row {
+    .hw-radio-data {
+      margin-right: 8px;
+    }
+  }
+
+  &.flex-direction-row-reverse {
+
+    .hw-radio-data {
+      margin-left: 8px;
+      }
+    }
+
+  &.flex-direction-column-reverse {
+    .hw-radio-data {
+      margin-top: 6px;
+      }
+    }
+
+  &.flex-direction-column {
+    .hw-radio-data {
+      margin-bottom: 6px;
+      }
+    }
+}
+
+
+.hw-radio-data-outer {
+  border: 1px solid transparent;
+  width: $c-radio-component-size;
+  height: $c-radio-component-size;
+  background: theme-var($--color-primary);
+  border-radius: calc(#{$c-radio-component-size/2});
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  }
+
+
+.hw-radio-data-inner {
+  border: 3px solid white;
+  width: $c-radio-component-inner;
+  height: $c-radio-component-inner;
+  background: transparent;
+  transition: background-color 0.4s ease-in;
+  border-radius: calc(#{$c-radio-component-inner/2});
+
+  &.hw-not-selected {
+    background: white;
+    }
+  }
+
+

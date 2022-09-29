@@ -1,0 +1,20 @@
+query dueDatesSummarizeByFilter($limit: Int,$offset: Int, $page: Int, $perPage: Int, $sort: Sorting, $filter: JSON, $group: [String!],$attributes: [String!], $include: JSON) {
+    data: dueDatesSummarizeByFilter(limit:$limit,offset:$offset, page: $page, perPage:$perPage, sort:$sort, filter:$filter, group: $group, attributes: $attributes, include: $include) {
+        flag
+        status
+        finance
+        customerId
+        date
+    }
+}
+
+query dueDates($limit: Int,$offset: Int, $page: Int, $perPage: Int, $sort: Sorting, $filter: JSON, $include: JSON) {
+    data: dueDates(limit:$limit,offset:$offset, page: $page, perPage:$perPage, sort:$sort, filter:$filter, include: $include) {
+        items{
+            ...dueDatesDetails
+        }
+        count
+        perPage
+        page
+    }
+}

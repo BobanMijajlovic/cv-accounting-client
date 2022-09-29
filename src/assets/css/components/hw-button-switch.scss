@@ -1,0 +1,250 @@
+$toggle-width: 100px;
+$toggle-height: 50px;
+$toggle-gutter: 5px;
+$toggle-radius: 50%;
+$toggle-radius: $toggle-height / 2;
+$toggle-control-size: $toggle-height - ($toggle-gutter * 2);
+
+$toggle-width-1: 20px;
+$toggle-height-1: $toggle-width-1 / 2;
+$toggle-radius-1: $toggle-height-1 / 2;
+$toggle-gutter-1: $toggle-height-1 / 3;
+$toggle-control-size-1: $toggle-height-1 - ($toggle-gutter-1 * 2);
+
+$toggle-width-2: 35px;
+$toggle-height-2: $toggle-width-2 / 2;
+$toggle-radius-2: $toggle-height-2 / 2;
+$toggle-gutter-2: $toggle-height-2 / 4;
+$toggle-control-size-2: $toggle-height-2 - ($toggle-gutter-2 * 2);
+
+$toggle-width-3: 50px;
+$toggle-height-3: $toggle-width-3 / 2;
+$toggle-radius-3: $toggle-height-3 - 5px;
+$toggle-gutter-3: $toggle-height-3 / 5;
+$toggle-control-size-3: $toggle-height-3 - ($toggle-gutter-3 * 2);
+
+/*
+.switch-button-control {
+  display: block;
+  position: relative;
+  padding-left: $toggle-width;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  user-select: none;
+  color: #ffffff;
+
+  &.size-1 {
+    padding-left: $toggle-width-1;
+    font-size: $toggle-radius-1;
+
+    .control {
+      height: $toggle-height-1;
+      width: $toggle-width-1;
+      border-radius: $toggle-radius-1;
+
+      &:after {
+        left: $toggle-gutter-1;
+        top: $toggle-gutter-1;
+        width: $toggle-control-size-1;
+        height: $toggle-control-size-1;
+        border-radius: $toggle-radius-1;
+      }
+    }
+    .control.checked {
+      &:after {
+        left: $toggle-width-1 - $toggle-control-size-1 - $toggle-gutter-1;
+      }
+    }
+  }
+
+  &.size-2 {
+    padding-left: $toggle-width-2;
+    font-size: $toggle-radius-2;
+
+    .control {
+      height: $toggle-height-2;
+      width: $toggle-width-2;
+      border-radius: $toggle-radius-2;
+      &:after {
+        left: $toggle-gutter-2;
+        top: $toggle-gutter-2;
+        width: $toggle-control-size-2;
+        height: $toggle-control-size-2;
+        border-radius: $toggle-radius-2;
+      }
+
+    }
+    .control.checked {
+      &:after {
+        left: $toggle-width-2 - $toggle-control-size-2 - $toggle-gutter-2;
+      }
+    }
+  }
+
+  &.size-3 {
+    padding-left: $toggle-width-3;
+    font-size: $toggle-radius-3;
+
+    .control {
+      height: $toggle-height-3;
+      width: $toggle-width-3;
+      border-radius: $toggle-radius-3;
+      &:after {
+        left: $toggle-gutter-3;
+        top: $toggle-gutter-3;
+        width: $toggle-control-size-3;
+        height: $toggle-control-size-3;
+        border-radius: $toggle-radius-3;
+      }
+
+    }
+    .control.checked {
+      &:after {
+        left: $toggle-width-3 - $toggle-control-size-3 - $toggle-gutter-3;
+      }
+    }
+  }
+
+
+  .control.checked {
+    background-color: theme-var($--color-primary);
+
+    &:after {
+      left: $toggle-width - $toggle-control-size - $toggle-gutter;
+    }
+  }
+
+  .control {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: $toggle-height;
+    width: $toggle-width;
+    border-radius: $toggle-radius;
+    background-color: theme-var($--color-disabled);
+    transition: background-color .35s ease-in;
+
+    &:after {
+      content: "";
+      position: absolute;
+      left: $toggle-gutter;
+      top: $toggle-gutter;
+      width: $toggle-control-size;
+      height: $toggle-control-size;
+      border-radius: $toggle-radius;
+      background: white;
+      transition: background-color .35s ease-in;
+    }
+  }
+}*/
+
+
+  .toggle {
+    display: none;
+
+    &,
+    &:after,
+    &:before,
+    & *,
+    & *:after,
+    & *:before,
+    & + .toggle-btn {
+      box-sizing: border-box;
+
+      &::selection {
+        background: none;
+      }
+    }
+
+    + .toggle-btn {
+      outline: 0;
+      display: block;
+      width: 4em;
+      height: 2em;
+      position: relative;
+      cursor: pointer;
+      user-select: none;
+
+      &:after,
+      &:before {
+        position: absolute;
+        display: block;
+        content: "";
+        width: 25%;
+        height: 100%;
+      }
+
+      &:after {
+        left: 0;
+      }
+
+      &:before {
+        content: 'N';
+        font-size: $c-font-size;
+        color: white;
+        width: 70%;
+        padding: 0px 5px;
+        right: 0;
+      }
+    }
+
+    &.checked {
+      + .toggle-btn {
+        &:after {
+          left: 75%;
+        }
+
+        &:before {
+          left: 0;
+          content: 'T';
+        }
+      }
+    }
+  }
+
+  .toggle-ios {
+    + .toggle-btn {
+      background: $c-color-switch-button-red;
+      border-radius: 6px;
+      padding: 2px;
+      transition: all .4s ease;
+      border: 1px solid #e8eae9;
+
+      &:after {
+        top: 0;
+        height: 101%;
+        border-radius: 3px;
+        background: #fbfbfb;
+        transition: left .3s cubic-bezier(0.175, 0.885, 0.320, 1.275), padding .3s ease, margin .3s ease;
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, .1), 0 4px 0 rgba(0, 0, 0, .08);
+      }
+
+      &:hover:after {
+        will-change: padding;
+      }
+
+      &:active {
+        box-shadow: inset 0 0 0 2em #e8eae9;
+
+        &:after {
+          padding-right: .8em;
+        }
+      }
+    }
+
+    &.checked {
+      + .toggle-btn {
+        background: $c-color-switch-button-green;
+
+        &:active {
+          box-shadow: none;
+
+          &:after {
+            margin-left: -.8em;
+          }
+        }
+      }
+    }
+  }
+

@@ -1,0 +1,24 @@
+query getValidTax($date: DateTime) {
+    validTax: getValidTax(date:$date) {
+        ...taxDetails
+        values{
+            ...taxValueDetails
+        }
+    }
+}
+
+
+mutation insertTaxDefinition($data: [TaxTypeDefine!]!) {
+      definition: insertTaxDefinition(data:$data) {
+          ...taxDetails
+      }
+}
+
+mutation insertTaxValue($data: TaxValuesType!){
+    tax: insertTaxValue(data:$data) {
+        ...taxDetails
+        values{
+            ...taxValueDetails
+        }
+    }
+}

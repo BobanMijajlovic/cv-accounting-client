@@ -1,0 +1,45 @@
+query normatives($limit: Int,$offset: Int, $page: Int, $perPage: Int, $sort: Sorting, $filter: JSON ,$include: JSON)  {
+    data: normatives(limit:$limit,offset:$offset, page: $page, perPage:$perPage, sort:$sort, filter:$filter,include: $include) {
+        items{
+            ...normativeDetails
+        }
+        count
+        perPage
+        page
+    }
+}
+
+
+query normative($id: Int!){
+    normative: normative(id:$id){
+        ...normativeDetails
+    }
+}
+
+query normativeSummarize ($id: Int!) {
+    normative: normativeSummarize(id: $id) {
+        ...normativeDetails
+    }
+}
+
+
+query findItemsWithNormative($value: String!) {
+    data: findItemsWithNormative(value: $value) {
+        ...itemDetails
+    }
+}
+
+mutation insertNormative($data:NormativeType!){
+    normative: insertNormative(data:$data){
+        ...normativeDetails
+    }
+}
+
+
+mutation updateNormative($id: Int!,$data:NormativeType!){
+    normative: updateNormative(id:$id, data:$data){
+        ...normativeDetails
+    }
+}
+
+

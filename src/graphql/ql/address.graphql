@@ -1,0 +1,13 @@
+query address($id: Int!) {
+    address(id: $id) {
+        ...addressDetails
+    }
+}
+
+
+
+mutation updateAddress($id:Int!, $data: AddressType!) {
+    address:updateAddress(id:$id, data: $data) {
+        ...addressDetails
+    }
+}

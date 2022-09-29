@@ -1,0 +1,22 @@
+
+.hw-radio-group-root {
+  display: flex;
+  flex-direction: column;
+
+  .hw-help-text {
+    border-top: 1px solid #f2f2f2;
+
+    &.error {
+      border-top: 1px solid theme-var($--color-error);
+      background: theme-var($--color-error-background);
+      }
+    }
+  }
+
+.hw-radio-group-data {
+  display: flex;
+  justify-content: space-between;
+  @include flex-align-items;
+  @include flex-directions;
+
+  }

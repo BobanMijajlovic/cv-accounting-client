@@ -1,0 +1,344 @@
+
+.calculations-table-root {
+  height: calc(100vh - 120px);
+}
+
+.calculation-form-root {
+  min-height: 85vh;
+  max-height: calc(100%);
+  width: 100%;
+
+  @media screen and (max-width: $c-tablet-version-width) {
+    min-height: calc(90vh - 10px);
+    max-height: calc(95vh - 10px);
+  }
+}
+
+
+.calculation-items-table-root {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.calculation-items-table {
+  width: 100%;
+
+  table {
+    border-collapse: collapse;
+  }
+
+  thead {
+    border-bottom: 2px double #e0e0e0;
+  }
+
+  th, td {
+    padding: 2px 4px;
+
+    &:not(:last-child) {
+      border-right: 1px solid #e0e0e0;
+    }
+  }
+
+  tr {
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  td {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 101%;
+  }
+
+
+  .article-name {
+    width: 20%;
+    z-index: 1;
+  }
+}
+
+.calculation-form-invoice-vats {
+  max-width: 220px;
+  min-width: 180px;
+
+  .vats {
+    max-width: 45px;
+  }
+
+}
+
+.calculation-preview-root {
+  min-width: 95vw;
+  max-width: 95vw;
+  min-height: 95vh;
+  max-height: 95vh;
+  padding: 10px 15px;
+}
+
+
+.calculation-select-table {
+  @include box-shadow-open;
+  position: absolute;
+  background-color: white;
+  width: 100%;
+  z-index: 25;
+  right: 0;
+  top: 35px;
+  overflow-y: auto;
+  transform: rotateY(0deg);
+  transition: transform 0.5s;
+  max-height: 270px;
+  min-width: 200px;
+}
+
+.calculation-items-form-margin {
+  height: 44px;
+  font-size: 12px;
+  line-height: inherit;
+  margin: 10px 0;
+}
+
+.hw-calculation-client-preview {
+  color: #184264;
+  background: #f0f8ff26;
+  border-bottom: 3px double rgba(128, 128, 128, 0.13);
+  max-width: 350px;
+}
+
+.hw-calculation-item-preview {
+  margin-top: 0px;
+  max-width: 100%;
+  max-height: 100%;
+  @media screen and (max-width: $c-tablet-version-width) {
+    min-width: 300px;
+    max-width: 100%;
+  }
+}
+
+.calculation-discount-expenses {
+  min-width: 400px;
+  padding: 2px;
+}
+
+.hw-calculation-find-item-td {
+  max-width: 300px;
+}
+
+.hw-calculation-insert-item-form-root {
+  width: 65%;
+  min-width: 800px;
+  max-width: 1600px;
+  @media screen and (max-width: $c-desktop-max) {
+     width: 90%;
+    }
+}
+.hw-calculation-insert-item-form-quantity-root{
+  min-width: 140px;
+  max-width: 220px;
+}
+
+.hw-calculation-insert-item-form-discount-root {
+  min-width: 225px;
+  max-width: 250px;
+}
+
+.hw-calculation-insert-item-form-finance-price-root {
+  min-width: 140px;
+  max-width: 250px;
+}
+
+
+.absolute-top-left-3 {
+  position: absolute;
+  top: -3px;
+  left: 0px;
+}
+
+.hw-calculation-item-preview-icon {
+  position: absolute;
+  top: -13px;
+  right: 7px;
+  cursor: pointer;
+}
+
+.hw-calculation-item-title {
+  position: absolute;
+  top: -13px;
+  left: 0px;
+  cursor: pointer;
+}
+
+.hw-supplier-sku-root {
+  max-width: 400px;
+}
+
+.hw-calculation-items-table-preview-root {
+  width: 100%;
+}
+
+.hw-auto-item-search-box {
+  width: 500px;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  z-index: 2000;
+  @include box-shadow-open;
+  @extend .gradient-white;
+  padding: 8px 20px;
+}
+
+.hw-auto-item-search-box-hide {
+  top: -10000px;
+  width: 0px;
+}
+
+.hw-show-hide-header-icon {
+  color: theme-var($--color-primary);
+  @include absolute(-5px,5px);
+
+  svg {
+    font-size: 25px;
+  }
+}
+
+.hw-show-hide-header-label {
+  min-width: 100px;
+}
+
+
+.background-grey {
+  background: #d7dfe640;
+}
+
+.calculation-footer-finance-table {
+  max-width: 400px;
+  min-width: 300px;
+}
+
+.calculation-footer {
+  border: 1px solid rgba(23, 85, 124, 0.88);
+  padding: 5px;
+  background: #d7dfe640;
+  border-radius: 3px;
+}
+
+.calculation-footer-root {
+  flex: 0 0 33.3333%;
+  max-width: 33.3333%;
+  @media screen and (max-width: $c-tablet-version-width) {
+    flex: 0 0 45%;
+    max-width: 45%;
+  }
+}
+
+
+.calculation-due-date-info-dialog-root {
+  max-width: 400px;
+  padding: 10px 20px;
+  font-size: 14px;
+}
+
+.calculation-due-date-preview {
+  border: 1px solid #184264;
+  color: #184264;
+  background: #f0f8ff26;
+  border-radius: 3px;
+}
+
+.calculation-due-date-preview-root {
+  min-width: 350px;
+  /*.due-date-title {
+    @include absolute(-20px)
+  }*/
+  .due-date-finance-title {
+    @include absolute(-20px)
+  }
+}
+
+.hw-calculation-table-preview {
+  overflow: hidden;
+}
+
+.hw-calculation-document-header-form-root {
+  min-width: 850px;
+  max-width: 900px;
+  padding: 20px;
+  margin-top: 5px;
+  max-height: 100%;
+}
+
+.hw-document-header-customer-part {
+  min-width: 350px;
+  max-width: 350px;
+  padding: 10px;
+  margin-left: 0;
+  margin-right: 10px;
+}
+
+.hw-document-header-other-parts {
+  min-width: 180px;
+  max-width: 200px;
+  padding: 0px 10px 5px;
+  margin: 0px 5px 0px;
+}
+
+
+.hw-input-calendar-input {
+  min-width: 100px;
+  max-width: 140px;
+}
+
+.hw-select-input {
+  min-width: 160px;
+  max-width: 180px;
+}
+
+.hw-extra-expenses-form {
+  min-width: 450px;
+  max-width: 550px;
+  padding-top: 5%;
+
+  @media screen and (max-width: $c-mobile-version-width) {
+    min-width: 100%;
+  }
+}
+
+.items-form-settings-icon {
+  @include absolute(0,35px);
+}
+
+.hw-expense-form-finance-type {
+  min-width: 120px;
+  @include absolute(0,null,null,0);
+}
+
+.hw-calculation-table-status-part {
+   min-width: 140px;
+   max-width: 140px;
+}
+
+.hw-calculation-status {
+  @include absolute(10px,30px)
+}
+
+
+.hw-tax-recapitulation-root {
+  min-width: 300px;
+  max-width: 350px;
+}
+
+.hw-table-taxes-recapitulation-root {
+  @include absolute(105%,null,null,0px);
+  background-color: rgba(158, 184, 195, 0.07);
+  width: 100%;
+  padding: 2px 4px;
+  z-index: 500;
+  border: 1px solid #eeeeee;
+  border-top: none;
+  font-weight: normal;
+  font-size: 11px;
+}
+
+.hw-calculation-form-div {
+  height: 100%;
+}

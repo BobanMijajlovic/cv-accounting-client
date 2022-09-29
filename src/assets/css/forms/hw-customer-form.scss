@@ -1,0 +1,273 @@
+$gradientRowList: theme-var($--color-primary) 0%, theme-var($--color-secondary) 100%;
+
+.hw-client-form-root {
+  min-width: 1250px;
+  max-width: 1250px;
+  padding: 20px;
+  margin-top: 5px;
+  max-height: 100%;
+
+  &.shadow-lg {
+    @media screen and (max-width: $c-mobile-version-width) {
+      box-shadow: none;
+    }
+  }
+
+  @media screen and (max-width: $c-mobile-version-width) {
+  @media screen and (max-width: $c-mobile-version-width) {
+    padding: 10px;
+    margin-top: 5px;
+    max-height: 100%;
+    &.shadow-lg {
+      box-shadow: none !important;
+      }
+
+
+    }
+  }
+
+
+}
+
+
+
+.hw-client-address-title {
+
+  color: theme-var($--color-primary-font);
+
+  > span {
+    min-width: 60px;
+    margin-right: 35px;
+    border-bottom: 1px solid #eee;
+    box-shadow: 0px 2px 2px -3px black;
+    color: rgba(17, 17, 17, 0.7);
+    font-size: 12px;
+    text-transform: uppercase;
+    }
+
+  > button {
+    margin-left: 15px;
+    }
+
+  &.hw-client-address-title-contact {
+    padding: 0px 2px 2px 12px;
+    }
+
+  .hw-help-text {
+    color: #2e383ee0;
+    position: absolute;
+    right: 20px;
+    font-size: 9px;
+    top: 11px;
+
+    }
+  }
+
+.hw-client-address-row {
+  position: relative;
+  }
+
+.hw-client-address-form-delete-icon {
+  position: absolute;
+  top: 45px;
+  bottom: 0;
+  right: -4px;
+  z-index: 50;
+  cursor: pointer;
+
+  > svg {
+    color: theme-var($--color-danger);
+    font-size: 24px;
+    }
+  }
+
+.hw-client-contact-grid {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 15px;
+  font-weight: 500;
+  color: theme-var($--color-primary-font);
+
+  .hw-client-contact-grid-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    border: 1px solid #eee;
+    line-height: 1.5;
+
+    &:nth-child(odd) {
+      background-color: rgba(222, 235, 241, 0.19);
+
+      &:hover {
+        background-color: rgba(222, 235, 241, 0.19);
+        cursor: pointer;
+
+        }
+
+      }
+
+    &:hover {
+      background-color: #fbfbfb;
+      cursor: pointer;
+      }
+
+
+    &.hw-grid-header-color {
+      @include component-border-basic();
+
+      > div {
+        @include default-application-gradient;
+        color: white;
+        font-weight: bold;
+        text-shadow: 0px 1px 2px black;
+        box-shadow: 0px 3px 8px -4px black;
+        }
+      }
+
+    > div {
+      flex: 1.5;
+      border-right: 1px solid #eee;
+      text-align: center;
+      padding: 5px;
+      font-size: 15px;
+
+
+      &:nth-child(3) {
+        border-right: 0;
+        flex: 0.5;
+        }
+      }
+    }
+  }
+
+.hw-client-contact-row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  > svg {
+    color: theme-var($--color-primary);
+    filter: drop-shadow(-2px 2px 0px white);
+    font-size: 18px;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.05);
+      }
+    }
+  }
+
+
+.hw-client-form-add-contact-form {
+  min-width: 400px;
+  max-width: 800px;
+  padding-top: 5%;
+
+  @media screen and (max-width: $c-mobile-version-width) {
+    min-width: 100%;
+    }
+
+  .hw-client-form-buttons {
+    margin: 15px 0 20px;
+    }
+  }
+
+.hw-client-form-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0 10px;
+
+  > button {
+    &:not(:last-child) {
+      margin-right: 15px;
+      }
+    }
+}
+.row {
+ padding: 0;
+}
+
+.hw-customer-finance-balance-root {
+  min-width: 500px;
+  max-width: 700px;
+}
+
+.hw-customer-sum-next-week-root {
+  min-width: 500px;
+  max-width: 750px;
+}
+
+.hw-customer-sum-next-week-row {
+  text-align: right;
+  > div{
+    width: 100%;
+    border-bottom: 1px solid #dddddd;
+    padding: 2px;
+  }
+}
+
+.hw-customer-info-root {
+  width: 80%;
+  margin: 0px auto;
+
+
+  @include screenDesktop4k {
+    width: 70%;
+  }
+
+}
+
+.hw-client-form-add-bank-form {
+  min-width: 400px;
+  max-width: 800px;
+  padding-top: 5%;
+
+  @media screen and (max-width: $c-mobile-version-width) {
+    min-width: 100%;
+  }
+
+  .hw-client-form-buttons {
+    margin: 15px 0 20px;
+  }
+}
+
+
+.customer-view-render {
+  min-width: 360px;
+  max-width: 360px;
+}
+
+.hw-customer-external-view {
+  min-height: 200px;
+}
+
+.hw-customer-external-search-root {
+  max-width: 450px;
+  min-width: 450px;
+}
+
+.input-bank-account {
+  > div {
+    flex: 1;
+    min-width: 90px;
+  }
+
+  .middle {
+    flex: 2;
+  }
+}
+
+.hw-customer-search-preview {
+  max-width: 350px;
+}
+
+.hw-customer-view-short-root {
+  position: relative;
+  padding-bottom: 1.5rem;
+  text-align: left;
+}

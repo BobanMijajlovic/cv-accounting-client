@@ -1,0 +1,79 @@
+
+
+.hw-appbar-root {
+  // @include gradient(to bottom,theme-var($--linear-gradient-primary));
+  @include default-application-gradient;
+  color: white;
+  font-weight: 400;
+  position: static;
+  width: 100%;
+  text-shadow: 0px 1px 1px black;
+
+  &.fixed {
+    position: fixed;
+    top: 0;
+    transform: translateZ(0);
+    z-index: 1100;
+    }
+
+  .hw-toolbar-root {
+    min-height: 45px;
+    max-height: 45px;
+    padding-left: 14px;
+    padding-right: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .hw-toolbar-app-name {
+      display: flex;
+      align-items: center;
+      }
+
+
+    .hw-appbar-menu-icon {
+      padding: 0px 8px;
+      border-radius: 60%;
+      font-size: 20px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.08);
+        transform: scale(1.04);
+        }
+
+      &:active {
+        transform: scale(1.00);
+        }
+      }
+
+    .hw-appbar-label {
+      font-size: 15px;
+      font-weight: 400;
+      padding-left: 10px;
+      }
+    }
+
+  }
+
+.hw-logged-icon {
+  display: flex;
+  align-items: center;
+
+
+  .hw-logged-user {
+    padding-right: 10px;
+    border-right: 1px solid white;
+    }
+
+
+  .hw-login-icon {
+    cursor: pointer;
+    padding-right: 10px;
+    padding-left: 10px;
+    }
+
+  .hw-logout-label {
+    font-size: 12px;
+    }
+  }

@@ -1,0 +1,96 @@
+
+.hw-registration-dialog-root {
+  @include no-user-select;
+  z-index: 51;
+  background: #fefefe;
+  position: relative;
+  min-width: 300px;
+  min-height: 320px;
+  padding: 0px 30px;
+
+  .hw-registration-dialog-action {
+    position: absolute;
+    bottom: 20px;
+    left: 17%;
+    }
+
+  .hw-registration-dialog-sub-content {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0px;
+    min-height: 40px;
+    position: relative;
+    color: theme-var($--color-primary);
+    font-size: 12px;
+    }
+
+  .hw-registration-dialog-header {
+    text-align: center;
+    margin: 20px 0px 10px;
+    min-height: 40px;
+    position: relative;
+    color: #006100;
+
+    &.hw-dialog-logo {
+      text-align: left;
+      margin-left: 20px;
+      padding-top: 10px;
+
+      > img {
+        max-width: 70px;
+        max-height: 40px;
+        }
+      }
+    }
+
+  .hw-registration-dialog-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    flex-direction: column;
+    //padding: 120px 10px 10px;
+    font-size: 16px;
+    color: theme-var($--color-primary);
+    font-weight: bold;
+    word-break: break-word;
+    text-transform: uppercase;
+    white-space: pre-line;
+    z-index: 2;
+    text-align: center;
+    }
+
+  .hw-registration-dialog-icon {
+    padding: 5px 0px 30px;
+    flex: 1;
+
+    .hw-success {
+      font-size: 80px;
+      color: theme-var($--color-success);
+      opacity: 0.5;
+      }
+
+    .hw-error {
+      color: theme-var($--color-danger);
+      font-size: 80px;
+      opacity: 0.8;
+      }
+    }
+
+  &.error {
+    .hw-registration-dialog-header {
+      color: theme-var($--color-danger);
+      }
+
+    .hw-registration-dialog-content {
+      color: theme-var($--color-danger);
+      }
+
+    .hw-registration-dialog-sub-content {
+      color: theme-var($--color-danger);
+      }
+    }
+
+  }

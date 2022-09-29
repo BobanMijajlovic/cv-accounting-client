@@ -1,0 +1,40 @@
+
+.hw-breadcrumb-root {
+  display:flex;
+  flex-wrap: wrap;
+  padding: 0;
+  font-size: $c-font-size;
+
+
+
+  .hw-breadcrumb-item {
+    color: theme-var($--color-primary);
+    text-decoration: underline;
+
+    &:first-child {
+      &::before {
+        display: none;
+      }
+    }
+
+    &::before {
+      float: left;
+      padding-left: 8px;
+      padding-right: 8px;
+      color: #6c757d;
+      content: "/";
+    }
+
+    &:hover {
+      transform: scale(1.01);
+    }
+
+    &.active {
+      color: #6c757d;
+      text-decoration: none;
+      &:hover {
+        transform: scale(1.00);
+      }
+    }
+  }
+}

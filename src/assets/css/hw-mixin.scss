@@ -1,0 +1,234 @@
+@mixin blockClass {
+  display: block;
+  width: 100%;
+  }
+
+@mixin allButtonsDefault($buttonColor) {
+  border: none;
+  color: $colorWhite;
+  background-color: $buttonColor;
+  .hw-button-text {
+    font-size: 14px;
+    text-shadow: $textShadowDefault;
+    }
+  &.outline {
+    background-color: transparent;
+    border: 2px solid $buttonColor;
+    color: $buttonColor;
+    text-shadow: none;
+    }
+  &.hw-disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+    border-color: theme-var($--color-disabled);
+    box-shadow: none;
+
+    &:hover {
+      box-shadow: none;
+      }
+    }
+
+  &:hover {
+    box-shadow: $hoverBoxShadow;
+    }
+  }
+
+@mixin absolute ($top: null, $right: null, $bottom: null, $left: null) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin icon-shadow {
+  > svg {
+    -webkit-filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, .5));
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5))
+    }
+  }
+
+
+@mixin allFabButtonsDefault($buttonColor) {
+  border: none;
+  color: $colorWhite;
+  background: $buttonColor;
+  .hw-button-text {
+    font-size: 14px;
+    text-shadow: $textShadowDefault;
+    }
+  &.outline {
+    background: $colorWhite;
+    border: 1px solid $buttonColor;
+    color: $buttonColor;
+    text-shadow: none;
+
+    }
+  &.hw-disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+    border-color: theme-var($--color-disabled);
+    box-shadow: none;
+
+    &:hover {
+      box-shadow: none;
+      }
+    }
+
+
+  }
+
+@mixin grd($direction, $list) {
+  background: -webkit-radial-gradient(center, $list);
+  background: -moz-radial-gradient(center, $list);
+  background: radial-gradient(ellipse at center, $list);
+  }
+
+@mixin color-gradient-hover {
+  background: rgba(255, 255, 255, 1);
+  background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(237, 237, 237, 1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255, 255, 255, 1)), color-stop(47%, rgba(246, 246, 246, 1)), color-stop(100%, rgba(237, 237, 237, 1)));
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(237, 237, 237, 1) 100%);
+  background: -o-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(237, 237, 237, 1) 100%);
+  background: -ms-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(237, 237, 237, 1) 100%);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(237, 237, 237, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed', GradientType=0);
+  }
+
+@mixin box-shadow-open {
+  -webkit-box-shadow: 0 9px 6px -6px #888, 1px 0px 3px -1px #333, -1px 0px 1px -1px #000;
+  -moz-box-shadow: 0 9px 6px -6px #888, 1px 0px 3px -1px #333, -1px 0px 1px -1px #000;
+  box-shadow: 0 9px 6px -6px #888, 1px 0px 3px -1px #333, -1px 0px 1px -1px #000;
+  }
+
+
+/*@mixin default-application-gradient{
+  background: #6d6e6d;
+  background: -moz-linear-gradient(top,  #55656b 0%, #2e383ee0 100%);
+  background: -webkit-linear-gradient(top, #55656b 0%,#2e383ee0 100%);
+  background: linear-gradient(to bottom,  #55656b 0%,#2e383ee0 100%);
+}*/
+
+@mixin default-application-gradient {
+  background: linear-gradient(to bottom, rgba(23, 85, 124, 0.88) 27%, rgba(22, 56, 93, 0.88) 67%);
+
+  }
+
+@mixin application-gradient_grey {
+  background: linear-gradient(to bottom, #f8f8f8 27%, rgba(228, 227, 227, 0.64) 67%);
+  }
+
+
+@mixin default-button-shadow {
+  box-shadow: 0 6px 4px -6px rgba(75, 75, 75, 0.9), 7px 0 6px -7px rgba(75, 75, 75, 0.9);
+  }
+
+
+@mixin gradient($direction, $list) {
+  background-image: -webkit-linear-gradient($direction, $list);
+  background: -moz-linear-gradient($direction, $list);
+  background: -o-linear-gradient($direction, $list);
+  background-image: linear-gradient($direction, $list);
+  }
+
+@mixin component-border-basic {
+  border: 1px solid #ced4da;
+  border-radius: 3px;
+  &.error {
+    border-color: theme-var($--color-error)
+    }
+  }
+
+
+@mixin no-user-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  }
+
+@mixin component-disabled {
+  &.hw-disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+    }
+  }
+
+
+@mixin flex-directions {
+  &.flex-direction-column {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    }
+
+  &.flex-direction-column-reverse {
+    -webkit-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+    }
+
+  &.flex-direction-row-reverse {
+    -webkit-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+    }
+  }
+
+@mixin justify-content {
+  &.flex-justify-content-space-between {
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    }
+  &.flex-justify-content-space-around {
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+    }
+  &.flex-justify-content-center {
+    -webkit-justify-content: center;
+    justify-content: center;
+    }
+  &.flex-justify-content-flex-start {
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    }
+  &.flex-justify-content-flex-end {
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+    }
+  }
+
+
+@mixin flex-align-items {
+  &.flex-align-items-center {
+    -webkit-align-items: center;
+    align-items: center;
+    }
+
+  &.flex-align-items-start {
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+    }
+
+  &.flex-align-items-end {
+    -webkit-align-items: flex-end;
+    align-items: flex-end;
+    }
+  }
+
+@mixin padding-grid($value) {
+  padding-left: $value;
+  padding-right: $value;
+}
+
+
+@mixin screenDesktop2k {
+  @media screen and (min-width: $c-desktop-2k) {
+    @content;
+  }
+}
+
+@mixin screenDesktop4k {
+  @media screen and (min-width: $c-desktop-ultra) {
+    @content;
+  }
+}

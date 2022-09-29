@@ -1,0 +1,126 @@
+$--color-primary: --color-primary; // color like primary for component
+$--color-primary-font: --color-primary-font;
+$--color-secondary: --color-secondary;
+$--color-success: --color-success;
+$--color-danger: --color-danger;
+$--color-info: --color-info;
+$--color-gray: --color-gray;
+$--color-error: --color-error;
+$--color-error-background: --color-error-background;
+$--color-help-text: --color-help-text;
+$--color-disabled: --color-disabled;
+$--prefix-icon-color: --prefix-icon-color;
+$--linear-gradient-primary: --linear-gradient-primary;
+$--linear-gradient-blue: --linear-gradient-blue;
+$--linear-gradient-black: --linear-gradient-black;
+$--linear-gradient-red: --linear-gradient-red;
+$--color-grey: --color-grey;
+
+$--color-primary-outline: --color-primary-outline;
+$--color-danger-outline: --color-danger-outline;
+
+
+$c-tablet-version-width: 1370px;
+$c-mobile-version-width: 500px;
+$c-desktop-max: 1900px;
+$c-desktop-2k: 2200px;
+$c-desktop-ultra: 3800px;
+
+$c-component-height: 44px;
+$c-font-size: 14px;
+$c-font-input-size: 15px;
+$c-font-label-size: 8px;
+$c-font-content-size: 16px;
+$c-font-button-size: 16px;
+$c-font-button-icon-size: 14px;
+
+//color
+$c-color-success: #0a6724;
+;
+$c-color-info: rgb(24, 146, 168);
+$c-color-danger: #7b2d35;
+$c-color-gray: #bdbdbd;
+$c-color-black: rgb(0, 0, 0);
+
+$c-color-switch-button-red: #aa0d0dbd;
+$c-color-switch-button-green: #337b30c7;
+
+
+$theme-map-blue: (
+        $--color-primary: rgba(3, 52, 78, 0.85),
+        $--color-primary-font: #2e383ee0,
+        $--color-secondary: lighten(rgba(3, 52, 78, 0.85), 10%),
+        $--color-success: $c-color-success,
+        $--color-info: $c-color-info,
+        $--color-gray: $c-color-gray,
+        $--color-danger: $c-color-danger,
+        $--color-error: #b52025,
+        $--color-error-background: rgba(181, 32, 37, 0.08),
+        $--color-help-text: rgba(17, 17, 17, 0.7),
+        $--color-disabled: rgba(192, 192, 192, 0.48),
+        $--color-grey: rgb(172, 172, 172),
+        $--prefix-icon-color: rgba(3, 29, 110, 0.6),
+        $--linear-gradient-blue: linear-gradient(to bottom, rgba(23, 85, 124, 0.88) 27%, rgba(22, 56, 93, 0.88) 67%),
+        $--linear-gradient-red: linear-gradient(to bottom, rgba(131, 6, 9, 0.88) 27%, rgba(88, 6, 9, 0.88) 67%),
+        $--linear-gradient-primary: (rgba(29, 63, 126, 0.8) 0%, rgba(30, 87, 153, 1) 10%, rgb(39, 104, 178) 50%, rgb(28, 65, 125) 99%, rgba(30, 87, 153, 0.8) 100%),
+        $--color-primary-outline: rgba(0, 91, 139, 0.32),
+        $--color-danger-outline: rgba(123, 45, 53, 0.27)
+);
+
+
+$theme-map-green: (
+        $--color-primary: rgba(24, 66, 38, 0.85),
+        $--color-primary-font: #101c06,
+        $--color-secondary: lighten(rgba(24, 66, 38, 0.85), 10%),
+        $--color-success: $c-color-success,
+        $--color-info: $c-color-info,
+        $--color-danger: $c-color-danger,
+        $--color-gray: $c-color-gray,
+        $--color-error: #b52025,
+        $--color-error-background: rgba(181, 32, 37, 0.08),
+        $--color-help-text: rgba(16, 28, 6, 0.7),
+        $--color-disabled: rgba(192, 192, 192, 0.48),
+        $--color-grey: rgb(172, 172, 172),
+        $--prefix-icon-color: rgba(24, 90, 38, 0.6),
+        $--linear-gradient-primary: (rgba(24, 66, 38, 0.8) 0%, rgba(25, 86, 57, 1) 10%, rgb(34, 103, 82) 50%, rgb(23, 66, 33) 99%, rgba(25, 86, 57, 0.8) 100%),
+        $--linear-gradient-blue: (lighten(rgba(3, 52, 78, 0.85), 10%) 0%, darken(lighten(rgba(3, 52, 78, 0.85), 10%), 5%) 10%, darken(lighten(rgba(3, 52, 78, 0.85), 10%), 10%) 100%),
+        $--color-primary-outline: rgba(3, 52, 78, 0.5),
+        $--color-danger-outline: rgba(123, 45, 53, 0.5),
+);
+
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+
+@function theme-var($key, $fallback: null, $map: $theme-map-blue) {
+  @if not map-has-key($map, $key) {
+    @error "key: '#{$key}', is not a key in map: #{$map}";
+    }
+  @if ($fallback) {
+    @return var($key, $fallback);
+    } @else {
+    @return var($key);
+    }
+  }
+
+
+@mixin spread-map($map: ()) {
+  @each $key, $value in $map {
+    #{$key}: $value;
+    }
+  }
+
+
+:root.hw-theme-basic-blue {
+  @include spread-map($theme-map-blue);
+  }
+
+:root.hw-theme-basic-green {
+  @include spread-map($theme-map-green);
+  }
+

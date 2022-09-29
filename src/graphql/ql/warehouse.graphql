@@ -1,0 +1,37 @@
+query warehouses($limit: Int,$offset: Int, $page: Int, $perPage: Int, $sort: Sorting, $filter: JSON ) {
+    data: warehouses(limit:$limit,offset:$offset, page: $page, perPage:$perPage, sort:$sort, filter:$filter) {
+        items{
+            ...warehouseDetails
+        }
+        count
+        perPage
+        page
+    }
+}
+
+
+
+query warehouse($id: Int!){
+    warehouse: warehouse(id:$id){
+        ...warehouseDetails
+    }
+}
+
+mutation insertWarehouse($data: WarehouseType!) {
+    warehouse: insertWarehouse(data:$data) {
+        ...warehouseDetails
+    }
+}
+
+mutation updateWarehouse($data:WarehouseType!,$id: Int!) {
+    warehouse: updateWarehouse(data:$data,id:$id) {
+        ...warehouseDetails
+    }
+}
+
+mutation insertWarehouses($data:[WarehouseType!]!) {
+    warehouses: insertWarehouses(data:$data)
+}
+
+
+

@@ -1,0 +1,77 @@
+
+.hw-finance-transfer-document-root {
+  min-width: 650px;
+
+  .hw-transfer-document-type-root {
+    @include absolute(-35px,null,null,0px);
+  }
+
+  .hw-customer-part {
+    flex:2;
+    max-width: 400px;
+
+    .hw-customer-search-preview {
+      min-height: 130px;
+      width: 100%;
+      max-width: 100%;
+
+      > div {
+        padding-bottom: 0 !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: stretch;
+        height: 100%;
+      }
+    }
+  }
+
+  .hw-transfer-document-finance-part {
+    min-width: 500px;
+    max-width: 500px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .hw-select-root {
+      width: 120px;
+    }
+
+    > div {
+      flex: 1;
+    }
+  }
+
+}
+
+.in-background {
+  background-color: lighten($c-color-switch-button-green,62%) !important;
+}
+
+.out-background {
+  background-color: lighten($c-color-switch-button-red,62%) !important;
+}
+
+.in-icon-color {
+  color: $c-color-switch-button-green !important;
+}
+
+.out-icon-color {
+  color: $c-color-switch-button-red !important;
+}
+
+.hw-transfer-document-type-switch-button {
+  + .toggle-btn {
+    &:before {
+      content: 'OUT';
+    }
+  }
+
+  &.checked {
+    + .toggle-btn {
+      &:before {
+        content: 'IN';
+      }
+    }
+  }
+}

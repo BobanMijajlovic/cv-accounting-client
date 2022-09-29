@@ -1,0 +1,42 @@
+query categories($limit: Int,$offset: Int, $page: Int, $perPage: Int, $sort: Sorting, $filter: JSON ,$include: JSON)  {
+    data: categories(limit:$limit,offset:$offset, page: $page, perPage:$perPage, sort:$sort, filter:$filter,include: $include) {
+        items{
+            ...categoryDetails
+        }
+        count
+        perPage
+        page
+    }
+}
+
+
+query category($id: Int!){
+    category:category(id:$id) {
+        ...categoryDetails
+    }
+}
+
+query getAllCategories{
+    categories:getAllCategories {
+        ...categoryDetails
+    }
+}
+
+
+mutation insertCategory($data: CategoryType!){
+    category:insertCategory(data:$data){
+        ...categoryDetails
+    }
+}
+
+mutation deleteCategory($id: Int!){
+    category:deleteCategory(id:$id){
+        ...categoryDetails
+    }
+}
+
+mutation updateCategory($id: Int!,$data: CategoryType!){
+    category:updateCategory(id:$id,data:$data){
+        ...categoryDetails
+    }
+}

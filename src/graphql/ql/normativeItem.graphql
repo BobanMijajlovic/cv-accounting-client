@@ -1,0 +1,19 @@
+
+
+mutation insertNormativeItem($data: NormativeItemType!){
+    normative: insertNormativeItem(data:$data){
+        ...normativeDetails
+    }
+}
+
+mutation updateNormativeItem($id: Int!,$data: NormativeItemType!){
+    normative: updateNormativeItem(id:$id,data:$data){
+        ...normativeDetails
+    }
+}
+
+mutation deleteNormativeItem($id: Int!){
+    normative: deleteNormativeItem(id: $id){
+        ...normativeDetails
+    }
+}

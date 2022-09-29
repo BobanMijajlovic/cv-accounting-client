@@ -1,0 +1,32 @@
+query calculations($limit: Int,$offset: Int, $page: Int, $perPage: Int, $sort: Sorting, $filter: JSON  ,$include: JSON) {
+    data: calculations(limit:$limit,offset:$offset, page: $page, perPage:$perPage, sort:$sort, filter:$filter,include: $include) {
+        items{
+            ...calculationDetails
+        }
+        count
+        perPage
+        page
+    }
+}
+
+query calculation($id: Int!){
+    calculation:calculation(id:$id) {
+        ...calculationDetails
+    }
+}
+
+
+mutation insertCalculation($data: CalculationType!){
+    calculation:insertCalculation(data:$data){
+        ...calculationDetails
+    }
+}
+
+mutation updateCalculation($id: Int!,$data: CalculationType!){
+    calculation: updateCalculation(id: $id,data:$data){
+        ...calculationDetails
+    }
+}
+
+
+

@@ -1,0 +1,39 @@
+query users($limit: Int,$offset: Int, $page: Int, $perPage: Int, $sort: Sorting, $filter: JSON ) {
+    data: users(limit:$limit,offset:$offset, page: $page, perPage:$perPage, sort:$sort, filter:$filter) {
+        items{
+            ...userDetails
+        }
+        count
+        perPage
+        page
+    }
+}
+
+
+query user($id: Int!){
+    user: user(id:$id){
+        ...userDetails
+    }
+}
+
+
+mutation insertUser($data:UserType!){
+    user: insertUser(data:$data){
+        ...userDetails
+    }
+}
+
+mutation updateUser($data: UserType!,$id: Int!){
+    user: updateUser(data:$data,id: $id){
+        ...userDetails
+    }
+}
+
+
+mutation resetPasswordByAdmin ($id: Int!) {
+    password: resetPasswordByAdmin(id:$id)
+}
+
+mutation userChangePassword($data: UserChangePasswordType!) {
+    user: userChangePassword(data:$data)
+}

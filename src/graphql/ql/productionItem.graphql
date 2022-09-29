@@ -1,0 +1,17 @@
+mutation insertProductionOrderItem($data: ProductionOrderItemType!){
+    productionOrder: insertProductionOrderItem(data:$data){
+        ...productionOrderDetails
+    }
+}
+
+mutation updateProductionOrderItem($id: Int!,$data: ProductionOrderItemType!){
+    productionOrder: updateProductionOrderItem(id:$id,data:$data){
+        ...productionOrderDetails
+    }
+}
+
+mutation deleteProductionOrderItem($id: Int!){
+    productionOrder: deleteProductionOrderItem(id: $id){
+        ...productionOrderDetails
+    }
+}
