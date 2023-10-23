@@ -1,0 +1,23 @@
+query applicationData($limit: Int,$offset: Int, $page: Int, $perPage: Int, $sort: Sorting, $filter: JSON ) {
+    data: applicationData(limit:$limit,offset:$offset, page: $page, perPage:$perPage, sort:$sort, filter:$filter) {
+        items{
+            ...applicationDataDetails
+        }
+        count
+        perPage
+        page
+    }
+}
+
+mutation insertApplicationData ($data: ApplicationDataType!){
+    applicationData: insertApplicationData(data:$data) {
+        ...applicationDataDetails
+    }
+}
+
+mutation updateApplicationData ($data: ApplicationDataType!,$id: Int!){
+    applicationData: updateApplicationData(data:$data,id: $id) {
+        ...applicationDataDetails
+    }
+}
+

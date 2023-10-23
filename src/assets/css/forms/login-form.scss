@@ -1,0 +1,48 @@
+$borderColor: #eeee;
+
+
+.hw-login-root {
+  width: 300px;
+  min-height: 323px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @media screen and (max-width: $c-mobile-version-width) {
+    min-height: 300px;
+  }
+}
+
+.hw-login-forgot-password {
+  margin-top: -15px;
+  text-align: right;
+
+  a {
+    cursor: pointer;
+    font-size: 11px;
+    color: theme-var($--color-primary);
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      transform: scale(1.05);
+      text-decoration: none;
+    }
+  }
+}
+
+.hw-login-form-button {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.hw-registration-recaptcha {
+  margin: 0 auto;
+  max-width: 304px;
+  text-align: center;
+}
+
+
+
+
+
+

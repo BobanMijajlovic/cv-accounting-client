@@ -1,0 +1,71 @@
+.hw-form-success-verification-root {
+  @include color-gradient-hover;
+  @include box-shadow-open;
+  max-width: 400px;
+  min-width: 300px;
+  max-height: 100%;
+  width: 100%;
+  padding: 20px;
+  position: relative;
+  border: 1px solid #eeee;
+  border-radius: 3px;
+
+
+  .hw-success-verification-logo {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    max-width: 50px;
+    opacity: 0.4;
+  }
+
+  .hw-verified-logo {
+    color: theme-var($--color-success);
+    text-align: center;
+    opacity: 0.4;
+
+    > svg {
+      font-size: 90px;
+    }
+  }
+
+  .hw-success-verification-text {
+    margin-top: 10px;
+    display: block;
+    width: 100%;
+    padding: 0px 20px 0px;
+    white-space: pre-line;
+    font-size: $c-font-label-size;
+  }
+
+  .hw-success-verification-button {
+    margin: 10px auto 5px;
+    text-align: center;
+
+    .hw-button-root {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .hw-verify-alternative {
+    margin-top: 15px;
+    font-size: 13px;
+    color: theme-var($--color-help-text);
+
+    .hw-verify-alternative-link {
+      color: theme-var($--color-primary);
+      text-shadow: 0px 0px 1px #0000008a;
+    }
+  }
+
+  @media screen and (max-width: $c-mobile-version-width) {
+    max-width: 400px;
+    min-width: 300px;
+  }
+
+
+}

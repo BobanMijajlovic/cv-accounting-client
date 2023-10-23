@@ -1,0 +1,151 @@
+.hw-bank-transaction-form-root {
+  min-width: 1250px;
+  max-width: 1250px;
+  padding: 20px;
+  margin-top: 5px;
+  max-height: 100%;
+}
+
+
+.hw-bank-account-select-input {
+  min-width: 220px;
+  max-width: 250px;
+}
+
+.hw-account-balance-table-root {
+  min-width: 700px;
+  max-width: 750px;
+}
+
+.hw-account-balance-table-header{
+  * {
+    flex: 1;
+    text-align: center;
+    align-items: stretch;
+    border-right: 1px solid #dddddd;
+
+    &:last-child{
+      border-right: none;
+    }
+  }
+  border: 1px solid #dddddd;
+}
+
+.hw-account-balance-table-body{
+   * {
+     flex: 1;
+     border-right: 1px solid #dddddd;
+     text-align: right;
+     align-items: stretch;
+     padding: 0px 4px;
+
+     &:last-child{
+       border-right: none;
+     }
+   }
+  line-height: 200%;
+  border: 1px solid #dddddd;
+  border-top: none;
+}
+
+.hw-bank-transaction-insert-transaction-form-root {
+  min-width: 700px;
+  max-width: 700px;
+}
+
+
+
+.hw-bank-transaction-table-filter-account-select {
+  min-width: 205px;
+  max-width: 205px;
+}
+
+.hw-bank-transaction-expenses-input {
+  min-width: 100px;
+  max-width: 100px;
+}
+
+.hw-bank-transaction-code-input {
+  min-width: 80px;
+  max-width: 80px;
+}
+
+.hw-bank-transaction-preview-root {
+  min-width: 1400px;
+  max-width: 1400px;
+  min-height: 500px;
+  max-height: 80%;
+}
+
+.hw-bank-transaction-table-filter-bank-account-balance {
+  min-width: 280px;
+  max-width: 300px;
+}
+
+
+
+/** new */
+
+.hw-bank-header-transaction-form-root {
+  min-width: 500px;
+  max-width: 500px;
+  padding: 20px;
+  margin-top: 5px;
+  max-height: 100%;
+}
+
+.hw-bank-transaction-items-root {
+  .customer-bank-account-part {
+    padding: 0px 10px;
+  }
+
+  .bank-transaction-part {
+    > div {
+      flex: 1;
+      padding: 0px 10px;
+    }
+  }
+}
+
+
+
+.hw-bank-transaction-flag {
+  @include absolute(-7px,0px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+  cursor: pointer;
+
+  > div {
+    padding: 2px 4px;
+    border-radius: 5px;
+  }
+
+  .active {
+    color: #ffffff;
+    @include default-application-gradient;
+    font-weight: normal;
+    text-shadow: none;
+    -webkit-transition: background 1s ease-out;
+    -moz-transition: background 1s ease-out;
+    -o-transition: background 1s ease-out;
+    transition: background 1s ease-out;
+  }
+}
+
+.transaction-item-table-customer-column {
+  min-width: 300px;
+}
+
+.bank-account-short-view-root {
+  min-height: 75px;
+}
+
+.hw-bank-transaction-upload-file-button {
+  @include absolute(5px,5px);
+}
+
+.hw-set-bank-account-form {
+  width: 350px;
+}

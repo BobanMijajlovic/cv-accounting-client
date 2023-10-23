@@ -1,0 +1,107 @@
+query customers($limit: Int,$offset: Int, $page: Int, $perPage: Int, $sort: Sorting, $filter: JSON ) {
+    data: customers(limit:$limit,offset:$offset, page: $page, perPage:$perPage, sort:$sort, filter:$filter) {
+        items{
+            ...customerDetails
+        }
+        count
+        perPage
+        page
+    }
+}
+
+query customer($id: Int!){
+    customer:customer(id:$id) {
+        ...customerDetails
+    }
+}
+
+query customerExternalByName($value: String!) {
+    data: customerExternalByName(value: $value) {
+        fullName
+        shortName
+        taxNumber
+        uniqueCompanyNumber
+    }
+}
+
+query customerExternalByTin($value: String!) {
+    data: customerExternalByTin(value: $value) {
+        id
+        fullName
+        shortName
+        taxNumber
+        uniqueCompanyNumber
+        addresses {
+            street
+            city
+            zipCode
+            state
+            type
+        }
+        banks {
+            bankId
+            bank{
+                bankName
+            }
+            account
+            accountString
+        }
+    }
+}
+
+query customerExternalByBankAccount($value: String!) {
+    data: customerExternalByBankAccount(value: $value) {
+        id
+        fullName
+        shortName
+        taxNumber
+        uniqueCompanyNumber
+        addresses {
+            street
+            city
+            zipCode
+            state
+            type
+        }
+        banks {
+            bankId
+            bank{
+                bankName
+            }
+            account
+            accountString
+        }
+    }
+}
+
+
+mutation insertExternalCustomerByTin($value: String!){
+    customer:insertExternalCustomerByTin(value:$value){
+        ...customerDetails
+    }
+}
+
+mutation insertCustomer($data: CustomerType!){
+    customer:insertCustomer(data:$data){
+        ...customerDetails
+    }
+}
+
+mutation insertCustomers($data: [CustomerType!]!){
+    customers:insertCustomers(data:$data)
+}
+
+
+mutation updateCustomer( $data: CustomerType!,$id: Int! ){
+    customer:updateCustomer(data:$data, id:$id){
+        ...customerDetails
+    }
+}
+
+mutation updateBankAccount ( $data: BankAccountType!,$id: Int!) {
+    bankAccount: updateBankAccount(data:$data,id:$id) {
+        ...bankAccountDetails
+    }
+}
+
+

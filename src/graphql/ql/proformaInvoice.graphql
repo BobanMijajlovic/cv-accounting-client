@@ -1,0 +1,40 @@
+query proformaInvoices($limit: Int,$offset: Int, $page: Int, $perPage: Int, $sort: Sorting, $filter: JSON  ,$include: JSON) {
+    data: proformaInvoices(limit:$limit,offset:$offset, page: $page, perPage:$perPage, sort:$sort, filter:$filter,include: $include) {
+        items{
+            ...proformaInvoiceDetails
+        }
+        count
+        perPage
+        page
+    }
+}
+
+query proformaInvoice($id: Int!){
+    proformaInvoice:proformaInvoice(id:$id) {
+        ...proformaInvoiceDetails
+    }
+}
+
+mutation insertProformaInvoice($data: InvoiceType!){
+    proformaInvoice:insertProformaInvoice(data:$data){
+        ...proformaInvoiceDetails
+    }
+}
+
+mutation updateProformaInvoice($id: Int!,$data: InvoiceType!){
+    proformaInvoice:updateProformaInvoice(id:$id,data:$data){
+        ...proformaInvoiceDetails
+    }
+}
+
+mutation cloneProformaInvoice($id: Int!) {
+    proformaInvoice: cloneProformaInvoice(id: $id) {
+        ...proformaInvoiceDetails
+    }
+}
+
+mutation generateInvoice($id: Int!) {
+    proformaInvoice: generateInvoice(id: $id) {
+        ...proformaInvoiceDetails
+    }
+}

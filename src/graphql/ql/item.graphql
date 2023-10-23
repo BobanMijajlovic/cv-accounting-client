@@ -1,0 +1,78 @@
+query items($limit: Int,$offset: Int, $page: Int, $perPage: Int, $sort: Sorting, $filter: JSON ) {
+    data: items(limit:$limit,offset:$offset, page: $page, perPage:$perPage, sort:$sort, filter:$filter) {
+        items{
+            ...itemDetails
+        }
+        count
+        perPage
+        page
+    }
+}
+
+
+query item($id: Int!){
+    item: item(id:$id){
+        ...itemDetails
+    }
+}
+
+query totalSaleTransactionByItem($itemId: Int!,$dateStart: DateTime, $dateEnd: DateTime) {
+    saleItem: totalSaleTransactionByItem(itemId: $itemId,dateStart: $dateStart, dateEnd: $dateEnd) {
+        item{
+            ...itemDetails
+        }
+        quantity
+        taxFinance
+        financeVP
+    }
+}
+
+query totalTransactionBetweenDatesByItem($itemId: Int!,$dateStart: DateTime, $dateEnd: DateTime) {
+    saleItems: totalTransactionBetweenDatesByItem(itemId: $itemId,dateStart: $dateStart, dateEnd: $dateEnd) {
+        date
+        item{
+            ...itemDetails
+        }
+        quantity
+        taxFinance
+        financeVP
+    }
+}
+
+query totalSaleItemsByYear($itemId: Int!) {
+    saleByYear: totalSaleItemsByYear(itemId: $itemId) {
+        date
+        quantity
+        taxFinance
+        financeVP
+    }
+}
+
+
+
+mutation insertItem($data:ItemType!){
+    item: insertItem(data:$data){
+        ...itemDetails
+    }
+}
+
+mutation insertItems($data: [ItemType!]!) {
+    items: insertItems(data:$data)
+}
+
+
+mutation updateItem($data: ItemType!,$id: Int!){
+    item: updateItem(data:$data,id: $id){
+        ...itemDetails
+    }
+}
+
+mutation updateItemSupplier ($data: ItemSupplierType!,$id: Int!) {
+    itemSupplier: updateItemSupplier(data:$data,id:$id) {
+        ...itemSupplierDetails
+    }
+}
+
+mutation testInsertItemsByClient($data: [ItemType!]!) {
+    items: testInsertItemsByClient(data:$data)
+}

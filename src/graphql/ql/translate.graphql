@@ -1,0 +1,9 @@
+
+query getTranslate($lang: String!,$force: Boolean){
+    data: getTranslate(lang:$lang,force:$force){
+        key
+        translation
+    }
+}
+
+

@@ -1,0 +1,1025 @@
+fragment applicationDataDetails on ApplicationData {
+    id
+    key
+    value
+    valueJSON
+    status
+    createdAt
+    updatedAt
+}
+
+fragment addressDetails on Address {
+    id
+    street
+    zipCode
+    city
+    state
+    description
+    type
+    status
+    createdAt
+    updatedAt
+}
+
+fragment contactDetails on Contact {
+    id
+    type
+    value
+    description
+    status
+    createdAt
+    updatedAt
+}
+
+fragment  bankAccountDetails on BankAccount {
+    id
+    bankId
+    account
+    accountString
+    customer{
+        id
+        shortName
+        fullName
+        taxNumber
+    }
+    bank{
+        ...bankDetails
+    }
+    customerId
+    clientId
+    status
+    createdAt
+    updatedAt
+}
+
+fragment customerDetailsShort on Customer {
+    id
+    shortName
+    fullName
+    description
+    taxNumber
+    uniqueCompanyNumber
+    status
+    createdAt
+    updatedAt
+    addresses {
+        ...addressDetails
+    }
+}
+
+fragment dueDatesDetails on DueDates {
+    id
+    date
+    finance
+    description
+    flag
+    invoiceId
+    returnInvoiceId
+    financeTransferDocumentId
+    calculationId
+    customerId
+    calculation{
+        id
+        number
+    }
+    returnInvoice{
+        id
+        number
+    }
+    invoice{
+        id
+        number
+    }
+    financeTransferDocument{
+        id
+        number
+    }
+    status
+    createdAt
+    updatedAt
+}
+
+
+fragment customerDetails on Customer {
+    id
+    shortName
+    fullName
+    description
+    taxNumber
+    uniqueCompanyNumber
+    status
+    createdAt
+    updatedAt
+    addresses {
+        ...addressDetails
+    }
+    contacts {
+        ...contactDetails
+    }
+    infos {
+        ...customerInfoDetails
+    }
+    banks {
+        ...bankAccountDetails
+    }
+}
+
+fragment customerInfoDetails on CustomerInfo {
+    id
+    key
+    value
+    valueJSON
+    status
+    createdAt
+    updatedAt
+}
+
+
+fragment clientDetails on Client {
+    id
+    shortName
+    fullName
+    description
+    taxNumber
+    uniqueCompanyNumber
+    status
+    createdAt
+    updatedAt
+    addresses {
+        ...addressDetails
+    }
+    banks {
+        ...bankAccountDetails
+    }
+    contacts {
+        ...contactDetails
+    }
+}
+
+
+fragment taxValueDetails on TaxValue {
+    id
+    value
+    date
+    createdAt
+    updatedAt
+}
+
+fragment taxDetails on Tax {
+    id
+    name
+    short
+    mark
+    createdAt
+    updatedAt
+}
+
+fragment currencyValueDetails on CurrencyValue {
+    id
+    date
+    unit
+    buyingRate
+    middleRate
+    sellingRate
+    currencyDefinitionId
+    currencyDefinition {
+        ...currencyDefinitionDetails
+    }
+    createdAt
+    updatedAt
+}
+
+fragment currencyDefinitionDetails on CurrencyDefinition {
+    id
+    name
+    short
+    mark
+    country
+    status
+    createdAt
+    updatedAt
+}
+
+
+fragment itemSupplierDetails on ItemSupplier {
+    id
+    code
+    itemId
+    supplier {
+        ...customerDetails
+    }
+    createdAt
+    updatedAt
+}
+
+fragment itemsCategoryDetails on ItemsCategory {
+    id
+    itemId
+    categoryId
+    category{
+        ...categoryDetails
+    }
+    createdAt
+    updatedAt
+}
+
+fragment itemImagesDetails on ItemsImages {
+    id
+    url
+    type
+    size
+    itemId
+    status
+    createdAt
+    updatedAt
+}
+
+fragment itemDetails on Item {
+    id
+    barCode
+    code
+    type
+    shortName
+    fullName
+    uom
+    vp
+    mp
+    taxId
+    status
+    itemSuppliers{
+        ...itemSupplierDetails
+    }
+    norms{
+        id
+        description
+        status
+        createdAt
+        updatedAt
+    }
+    warehouseItems{
+        ...warehouseItemDetails
+    }
+    itemsCategories {
+        ...itemsCategoryDetails
+    }
+    images {
+        ...itemImagesDetails
+    }
+    createdAt
+    updatedAt
+}
+
+
+
+fragment userDetails on User {
+    id
+    firstName
+    lastName
+    email
+    userName
+    createdAt
+    updatedAt
+}
+
+
+fragment warehouseDetails on Warehouse {
+    id
+    name
+    description
+    flag
+    financeTotalClaims
+    financeTotalOwes
+    addresses {
+        ...addressDetails
+    }
+    status
+    createdAt
+    updatedAt
+}
+
+
+fragment warehouseSettingsDetails on WarehouseSettings {
+    id
+    name
+    value
+    description
+    createdAt
+    updatedAt
+}
+
+fragment warehouseItemDetails on WarehouseItem {
+    id
+    quantityTransactionOwes
+    quantityTransactionClaims
+    priceTransaction
+    quantityOnStack
+    financeOnStack
+    priceStack
+    quantityTotalClaims
+    financeTotalClaims
+    quantityTotalOwes
+    financeTotalOwes
+    transactionDate
+    itemId
+    invoice {
+        id
+        number
+        customer {
+            id
+            shortName
+            fullName
+            taxNumber
+        }
+    }
+    calculation {
+        id
+        invoiceNumber
+        number
+        supplier {
+            id
+            shortName
+            fullName
+            taxNumber
+        }
+    }
+    returnInvoice {
+        id
+        number
+        customer {
+            id
+            shortName
+            fullName
+            taxNumber
+        }
+    }
+    status
+    createdAt
+    updatedAt
+}
+
+fragment warehouseItemInfoDetails on WarehouseItemInfo {
+    id
+    warehouseId
+    warehouse{
+        ...warehouseDetails
+    }
+    warehouseItem {
+        ...warehouseItemDetails
+    }
+    item {
+        ...itemDetails
+    }
+}
+
+fragment discountsDetails on Discounts {
+    id
+    value
+    description
+    percent
+    status
+    createdAt
+    updatedAt
+}
+
+
+
+fragment calculationItemDetails on CalculationItem {
+    id
+    posNumber
+    quantity
+    taxPercent
+    financeVP
+    financeMP
+    taxId
+    financeExpInternalVP
+    financeExpInternalMP
+    financeFinalVP
+    financeFinalMP
+    item {
+        ...itemDetails
+    }
+    tax {
+        ...taxDetails
+        values{
+            ...taxValueDetails
+        }
+    }
+    status
+    createdAt
+}
+
+fragment expenseItemDetails on ExpenseItem {
+    id
+    tax {
+        ...taxDetails
+        values{
+            ...taxValueDetails
+        }
+    }
+    description
+    taxId
+    taxPercent
+    financeMP
+}
+
+fragment expenseDetails on Expense {
+    id
+    invoiceNumber
+    invoiceDate
+    dueDate
+    financeMP
+    financeTax
+    customer{
+        ...customerDetails
+    }
+    items {
+        ...expenseItemDetails
+    }
+    status
+    createdAt
+    updatedAt
+}
+
+fragment calculationDetails on Calculation {
+    id
+    number
+    invoiceNumber
+    totalFinanceVP
+    totalFinanceMP
+    financeTax
+    expenseInternalFinanceMP
+    expenseInternalFinanceTax
+    expenseTotalFinanceMP
+    expenseTotalFinanceTax
+    date
+    bookDate
+    invoiceDate
+    supplierId
+    warehouseId
+    clientId
+    supplier{
+        ...customerDetails
+    }
+    items {
+        ...calculationItemDetails
+    }
+    discount {
+        ...discountsDetails
+    }
+    dueDate {
+        ...dueDatesDetails
+    }
+    expense {
+        ...expenseDetails
+    }
+    warehouse {
+        ...warehouseDetails
+    }
+    vats {
+        ...taxFinanceDetails
+    }
+    itemInputType
+    status
+    createdAt
+    updatedAt
+}
+
+fragment invoiceVersionDetails on InvoiceVersion {
+    id
+    name
+    description
+    status
+}
+
+
+fragment notesDetails on Notes {
+    id
+    note
+    invoiceId
+    proformaInvoiceId
+    returnInvoiceId
+    financeTransferDocumentId
+    status
+    createdAt
+    updatedAt
+}
+
+fragment invoiceDiscountDetails on InvoiceDiscount{
+    id
+    percent
+    value
+    description
+    invoiceId
+    proformaInvoiceId
+    status
+    createdAt
+    updatedAt
+}
+
+fragment invoiceItemDiscountDetails on InvoiceItemDiscount{
+    id
+    percent
+    value
+    description
+    invoiceItemId
+    status
+    createdAt
+    updatedAt
+}
+
+
+fragment invoiceItemDetails on InvoiceItem {
+    id
+    price
+    quantity
+    financeVP
+    taxFinance
+    taxPercent
+    financeFinalVP
+    taxId
+    itemId
+    discount{
+        ...invoiceItemDiscountDetails
+    }
+    item{
+        ...itemDetails
+    }
+    warehouse{
+        ...warehouseDetails
+    }
+    tax {
+        ...taxDetails
+        values{
+            ...taxValueDetails
+        }
+    }
+    useDiscountDefault
+    warehouseId
+    invoiceId
+    proformaInvoiceId
+    status
+}
+
+fragment  invoiceDetails on Invoice {
+    id
+    number
+    date
+    customerId
+    customer{
+        ...customerDetails
+    }
+    dueDates{
+        ...dueDatesDetails
+    }
+    expense{
+        ...expenseDetails
+    }
+    notes{
+        ...notesDetails
+    }
+    discount{
+        ...discountsDetails
+    }
+    vats{
+        ...taxFinanceDetails
+    }
+    items{
+        ...invoiceItemDetails
+    }
+    flag
+    discountDefault
+    totalFinanceTax
+    totalFinanceVP
+    clientId
+    status
+    createdAt
+    updatedAt
+}
+
+fragment warehouseFinanceDetails on WarehouseFinance {
+    id
+    date
+    owes
+    claims
+    balance
+    totalOwes
+    totalClaims
+    warehouse{
+        ...warehouseDetails
+    }
+    calculation {
+        ...calculationDetails
+    }
+    invoice{
+        ...invoiceDetails
+    }
+    returnInvoice {
+        ...returnInvoiceDetails
+    }
+    returnInvoiceId
+    invoiceId
+    calculationId
+    createdAt
+    updatedAt
+}
+
+fragment receiptItemDetails on ReceiptItem {
+    id
+    price
+    quantity
+    discountPercent
+    discountValue
+    taxPercent
+    taxFinance
+    financeVP
+    financeFinalVP
+    receiptId
+    itemId
+    taxId
+    warehouseItemId
+    item{
+        ...itemDetails
+    }
+    tax{
+        ...taxDetails
+        values{
+            ...taxValueDetails
+        }
+    }
+    status
+    createdAt
+    updatedAt
+}
+
+fragment receiptPaymentDetails on ReceiptPayment {
+    id
+    type
+    value
+    receiptId
+    status
+    createdAt
+    updatedAt
+}
+
+fragment receiptDetails on Receipt {
+    id
+    receiptNumber
+    currencyValue
+    clientId
+    currencyId
+    items{
+        ...receiptItemDetails
+    }
+    payments{
+        ...receiptPaymentDetails
+    }
+    client{
+        ...clientDetails
+    }
+    status
+    createdAt
+    updatedAt
+}
+
+fragment translateDetail on Translate {
+    id
+    key
+    comment
+    en
+    sr
+}
+
+fragment transactionAdditionalData on BankTransactionAdditionalData {
+    id
+    accountNumber
+    modelString
+    description
+    transactionKey
+    code
+    bankTransactionsId
+    createdAt
+    updatedAt
+}
+
+fragment bankTransactionDetails on BankTransactions {
+    id
+    finance
+    expenses
+    datePaid
+    dateProcessed
+    flag
+    transactionAdditionalData{
+        ...transactionAdditionalData
+    }
+    bankAccount{
+        ...bankAccountDetails
+    }
+    customer {
+        ...customerDetails
+    }
+    customerId
+    clientId
+    bankAccountId
+    bankHeaderTransactionId
+    status
+    createdAt
+    updatedAt
+}
+
+
+fragment bankHeaderTransactionDetails on BankHeaderTransactions {
+    id
+    documentId
+    financeClaims
+    financeOwes
+    description
+    dateProcessed
+    bankAccountId
+    bankAccount{
+        ...bankAccountDetails
+    }
+    client{
+        ...clientDetails
+    }
+    bankTransactions{
+        ...bankTransactionDetails
+    }
+    userId
+    clientId
+    status
+    createdAt
+    updatedAt
+}
+
+fragment workOrderItemDetails on WorkOrderItem {
+    id
+    quantity
+    price
+    finance
+    taxPercent
+    workOrderId
+    taxId
+    clientId
+    warehouseItemInfoId
+    warehouseItemInfo{
+        ...warehouseItemInfoDetails
+    }
+    status
+    createdAt
+    updatedAt
+}
+
+fragment workOrderDetails on WorkOrder {
+    id
+    fromWarehouseId
+    toWarehouseId
+    finance
+    clientId
+    transferDate
+    workOrderItems{
+        ...workOrderItemDetails
+    }
+    fromWarehouse {
+        ...warehouseDetails
+    }
+    toWarehouse {
+        ...warehouseDetails
+    }
+    status
+    createdAt
+    updatedAt
+}
+
+
+
+fragment  proformaInvoiceDetails on ProformaInvoice {
+    id
+    number
+    date
+    customerId
+    customer{
+        ...customerDetails
+    }
+    expense{
+        ...expenseDetails
+    }
+    notes{
+        ...notesDetails
+    }
+    discount{
+        ...invoiceDiscountDetails
+    }
+    vats{
+        ...taxFinanceDetails
+    }
+    items{
+        ...invoiceItemDetails
+    }
+    invoice {
+        id
+        number
+        date
+    }
+    flag
+    discountDefault
+    totalFinanceTax
+    totalFinanceVP
+    clientId
+    invoiceId
+    status
+    createdAt
+    updatedAt
+}
+
+
+fragment bankDetails on Bank {
+    id
+    bankName
+    status
+}
+
+
+fragment  returnInvoiceDetails on ReturnInvoice {
+    id
+    number
+    date
+    customerId
+    customer{
+        ...customerDetails
+    }
+    dueDates{
+        ...dueDatesDetails
+    }
+    expense{
+        ...expenseDetails
+    }
+    notes{
+        ...notesDetails
+    }
+    vats{
+        ...taxFinanceDetails
+    }
+    items{
+        ...invoiceItemDetails
+    }
+    flag
+    totalFinanceTax
+    totalFinanceVP
+    clientId
+    status
+    createdAt
+    updatedAt
+}
+
+fragment invoiceAdvanceInvoiceDetails on InvoiceAdvanceInvoice {
+    id
+    date
+    itemDescription
+    totalFinanceVP
+    totalFinanceTax
+    totalFinanceMP
+    invoiceId
+    financeTransferDocumentId
+    status
+    createdAt
+    updatedAt
+}
+
+
+fragment taxFinanceDetails on TaxFinance {
+    id
+    date
+    taxFinance
+    taxPercent
+    financeMP
+    tax {
+        ...taxDetails
+        values{
+            ...taxValueDetails
+        }
+    }
+    taxId
+    proformaInvoiceId
+    invoiceId
+    returnInvoiceId
+    financeTransferDocumentId
+    calculationId
+    flag
+    status
+    createdAt
+    updatedAt
+}
+
+
+
+
+fragment financeTransferDocumentDetails on FinanceTransferDocument {
+    id
+    number
+    date
+    itemDescription
+    documentType
+    flag
+    customerId
+    customer{
+        ...customerDetails
+    }
+    tax{
+        ...taxFinanceDetails
+    }
+    dueDates{
+        ...dueDatesDetails
+    }
+    notes{
+        ...notesDetails
+    }
+    status
+    createdAt
+    updatedAt
+}
+
+fragment normativeItemDetails on NormativeItem {
+    id
+    quantity
+    itemId
+    normativeId
+    activeNormativeId
+    item{
+        ...itemDetails
+    }
+    status
+    createdAt
+    updatedAt
+}
+
+fragment normativeDetails on Normative {
+    id
+    description
+    clientId
+    itemId
+    items{
+        ...normativeItemDetails
+    }
+    item{
+        ...itemDetails
+    }
+    status
+    createdAt
+    updatedAt
+}
+
+fragment productionOrderItemDetails on ProductionOrderItem {
+    id
+    quantity
+    itemId
+    item{
+        ...itemDetails
+    }
+    productionOrderId
+    status
+    createdAt
+    updatedAt
+}
+
+fragment productionOrderDetails on ProductionOrder {
+    id
+    number
+    date
+    dateFinish
+    quantity
+    item{
+        ...itemDetails
+    }
+    normative{
+        ...normativeDetails
+    }
+    items{
+        ...productionOrderItemDetails
+    }
+    expense{
+        ...expenseDetails
+    }
+    status
+    itemId
+    normativeId
+    userId
+    clientId
+    createdAt
+    updatedAt
+}
+
+fragment categoryDetails on Category {
+    id
+    name
+    description
+    slug
+    children {
+        id
+        parent
+        child
+    }
+    parentId
+    clientId
+    createdAt
+    updatedAt
+}

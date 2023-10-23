@@ -1,0 +1,40 @@
+
+
+.hw-production-order-header-form-root{
+  width: 800px;
+
+
+  .hw-autocomplete-normative-item-find-root {
+    max-width: 400px;
+  }
+
+
+
+  .hw-find-normative-item-preview-root {
+    min-height: 100px;
+    max-height: 130px;
+    padding: 0px 16px;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+
+    > div {
+      flex: 1;
+    }
+  }
+}
+
+
+.hw-production-order-additional-expenses-finance-part {
+  max-width: 400px;
+}
+
+
+.hw-production-order-preview-root {
+  min-width: 95vw;
+  max-width: 95vw;
+  min-height: 95vh;
+  max-height: 95vh;
+  padding: 10px 15px;
+}

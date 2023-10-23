@@ -1,0 +1,44 @@
+/*hw colors and shadows start */
+
+$colorWhite: #fff;
+$colorSilver: rgb(249, 249, 249);
+$colorBlack: #000;
+$greyColor: rgba(75, 75, 75, 0.9);
+
+$textShadowDefault: 0 1px 1px $colorBlack;
+$textShadowSmall: 0 0.1px 0.1px $colorBlack;
+$boxShadow: 0 4px 6px -6px $colorBlack;
+$hoverBoxShadow: 0 6px 6px -6px $greyColor, 7px 0 6px -7px $greyColor;
+$boxShadowPaper: 0px 5px 1px -6px rgba(0, 0, 0, 0.9), 0px 2px 8px 0px rgba(0, 0, 0, 0.14), 0px 2px 3px 0px rgba(0, 0, 0, 0.12);
+
+
+/*hw input start*/
+
+
+$marginTop: 20px;
+
+$buttonOutlineTextShadow: 0.1px 0px 0px $colorBlack;
+$borderDefault: 1px solid #cfcfcf;
+$buttonStandardColor: #d7dfe6;
+$buttonPrimaryColor: rgba(21, 59, 94, 0.9);
+$buttonSuccessColor: #25753a;
+$buttonDangerColor: #7c1a1f;
+$buttonInfoColor: #1792a8;
+$buttonColorDefaultApp: #2e383ee0;
+$buttonSizeNormal: 10px 20px;
+$buttonSizeLg: 10px 15px;
+$switchActiveShadow: /*inset 1px 1px 1px 0.3px lighten($buttonPrimaryColor, 40%), inset 0px -1px 1px 0.3px lighten($buttonPrimaryColor, 40%),*/
+        0.5px 0px 2px #313131;
+
+$list: $colorWhite 0%, $colorSilver 10%, $colorWhite 100%;
+$list2: #f9f9f9, #ffffff;
+
+$linearGradientBlue: lighten($buttonPrimaryColor, 10%) 0%, darken(lighten($buttonPrimaryColor, 10%), 5%) 10%, darken(lighten($buttonPrimaryColor, 10%), 10%) 100%;
+$linearGradientWhite: darken($colorWhite, 10%) 0%, darken($colorWhite, 10%) 10%, darken($colorWhite, 10%) 100%;
+$linearGradientDefaultApp: darken($buttonColorDefaultApp, 10%) 0%, darken($buttonColorDefaultApp, 10%) 10%, darken($buttonColorDefaultApp, 10%) 100%;
+
+
+/*button constants end*/
+
+
+$defaultBlueGradientColor: lighten($buttonPrimaryColor, 20%) 37%, darken(lighten($buttonPrimaryColor, 10%), 67%);

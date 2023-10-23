@@ -1,0 +1,36 @@
+.hw-normative-dashboard-root {
+  width: 70%;
+  margin: 0px auto;
+
+
+  @include screenDesktop4k {
+    width: 60%;
+  }
+}
+
+
+.hw-normative-preview-root {
+  min-width: 60vw;
+  max-width: 60vw;
+  padding: 10px 15px;
+}
+
+
+.hw-normative-item-select-input {
+  min-width: 180px;
+  max-width: 180px;
+
+  .hw-normative-preview-icon {
+    @include absolute(-2px,0px);
+    color: theme-var($--color-primary);
+    font-size: $c-font-size;
+    cursor: pointer;
+    z-index: 50;
+  }
+
+  .hw-select-label {
+    font-size: 12px;
+  }
+
+
+}

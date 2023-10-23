@@ -1,0 +1,220 @@
+
+
+.hw-invoice-header-form-root{
+  width: 450px;
+}
+
+.hw-invoice-insert-item-form-root {
+  width: 67%;
+  @media screen and (max-width: $c-desktop-max) {
+    width: 67%;
+  }
+}
+
+.hw-invoice-header-customer-part {
+  min-width: 350px;
+  width: 100%;
+  padding: 10px;
+  margin-left: 0;
+  margin-right: 10px;
+}
+
+.hw-invoice-footer-form-root {
+  min-width: 600px;
+  max-width: 700px;
+  max-height: 100%;
+}
+
+.hw-invoice-header-form-discount-div{
+  max-width: 100px;
+}
+
+
+.hw-invoice-due-date-dialog-root {
+  min-width: 600px;
+  max-width: 600px;
+  max-height: 100%;
+}
+
+.hw-invoice-header-form-customer-div {
+  min-width: 300px;
+  max-width: 300px;
+  padding: 10px;
+  margin-left: 0;
+  margin-right: 10px;
+}
+.hw-invoice-due-date-form-inline {
+  min-height: 90px;
+}
+
+
+
+.hw-due-date-view-root {
+  min-height: 240px;
+}
+
+.hw-invoice-due-date-form-root {
+  width: 100%;
+  margin-top: 25px;
+  border: 1px solid #e2e2e2;
+  padding: 7px;
+  background: #eeeeee42;
+  box-shadow: inset 0.3px 0.3px 0.3px 0.3px #808080;
+  border-radius: 3px;
+
+
+  @media screen and (max-width: $c-mobile-version-width) {
+    min-width: 100%;
+  }
+
+  .hw-client-form-buttons {
+    margin: 15px 0 20px;
+  }
+}
+
+.hw-invoice-expense-preview-root {
+  min-width: 350px;
+}
+.hw-invoice-preview-root {
+  min-width: 95vw;
+  max-width: 95vw;
+  min-height: 95vh;
+  max-height: 95vh;
+  padding: 10px 15px;
+}
+
+.hw-invoice-insert-item-form-preview {
+  margin-top: 0px;
+  @media screen and (max-width: $c-tablet-version-width) {
+    min-width: 300px;
+    max-width: 100%;
+  }
+}
+
+.hw-invoice-insert-item-form-discount-root {
+  min-width: 80px;
+  max-width: 120px;
+}
+.hw-invoice-insert-item-form-warehouse-root {
+  min-width: 160px;
+  max-width: 190px;
+  .hw-select-root {
+    width: 100%;
+  }
+}
+
+.hw-invoice-insert-item-form-discount-check-box {
+  position: absolute;
+  top: -5px;
+  right: 10px;
+  min-width: 50px;
+}
+
+.hw-input-discount {
+  min-width: 80px;
+  max-width: 120px;
+}
+
+.hw-invoice-discount-form-default-discount-check-box {
+  @include absolute(10px,null,null,10px);
+  min-width: 50px;
+}
+
+
+.hw-additional-expenses_label {
+  position: absolute;
+  top: -10px;
+}
+
+.hw-invoice-form-summary-table-root {
+  min-width: 30%;
+  padding: 10px;
+  border: 1px solid #eeeeee;
+  border-radius: 3px;
+  background: #a7a7a70d;
+  box-shadow: -1px 6px 6px -7px #d6d6d6;
+
+ .hw-table-header-th {
+     padding: 1px 0;
+     background: theme-var($--color-primary);
+     color: white;
+     text-shadow: none;
+     font-size: 11px;
+     width: 30%;
+
+     &:first-child {
+       width: 60px;
+     }
+
+  }
+
+  .hw-table-root{
+    &.hw-tbl-separator-cell{
+      .hw-table-data-cell {
+        font-size: 11px;
+        border-right-color: rgb(191 191 191 / 15%);
+        border-bottom-color: rgb(191 191 191 / 15%);
+      }
+    }
+  }
+
+}
+
+
+.hw-advance-invoice-form-root {
+  min-width: 650px;
+
+  .hw-customer-part {
+     flex:2;
+     max-width: 400px;
+
+    .hw-customer-search-preview {
+      min-height: 130px;
+      width: 100%;
+      max-width: 100%;
+      > div {
+        padding-bottom: 0 !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: stretch;
+        height: 100%;
+      }
+    }
+  }
+
+  .hw-advance-invoice-finance-part {
+    min-width: 500px;
+    max-width: 500px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+    .hw-select-root {
+      width: 120px;
+    }
+
+    > div {
+      flex: 1;
+    }
+  }
+
+}
+
+.hw-advance-invoice-preview-root {
+  min-width: 800px;
+  max-width: 800px;
+  min-height: 400px;
+  max-height: 500px;
+  padding: 10px 15px;
+
+  .hw-calculation-client-preview {
+    border-bottom: none;
+  }
+
+  .border-bottom-double {
+    border-bottom: 3px double rgba(128, 128, 128, 0.13);
+  }
+
+}

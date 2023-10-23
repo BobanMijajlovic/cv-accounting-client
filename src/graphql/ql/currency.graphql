@@ -1,0 +1,11 @@
+mutation updateCurrencyDefinition ($id: Int!, $data: CurrencyDefinitionType!) {
+    currency: updateCurrencyDefinition(data:$data, id: $id) {
+        ...currencyDefinitionDetails
+    }
+}
+
+query getCurrencyList($date: DateTime) {
+    data: getCurrencyList(date : $date) {
+        ...currencyValueDetails
+    }
+}

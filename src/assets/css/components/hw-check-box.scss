@@ -1,0 +1,82 @@
+
+.hw-check-box-root {
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  @include no-user-select;
+  @include component-disabled;
+  @include flex-directions;
+
+  &.error {
+    color: theme-var($--color-error);
+    .hw-check-box-label {
+      color: theme-var($--color-error);
+    }
+  }
+
+  }
+
+.hw-check-box-label {
+  color: theme-var($--color-primary-font);
+  font-size: $c-font-input-size;
+  margin: 0px;
+  padding: 0px 8px;
+
+  &.font-size-0 {
+    font-size: calc(15px - 5px);
+  }
+  &.font-size-1 {
+    font-size: calc(15px - 4px);
+  }
+  &.font-size-2 {
+    font-size: calc(15px - 3px);
+  }
+  &.font-size-3 {
+    font-size: calc(15px - 2px);
+  }
+  &.font-size-4 {
+    font-size: calc(15px - 1px);
+  }
+  &.font-size-5 {
+    font-size: 15px;
+  }
+  &.primary {
+    color: theme-var($--color-primary);
+  }
+  &.danger {
+    color: theme-var($--color-danger);
+  }
+  &.grey {
+    color: theme-var($--color-grey);
+  }
+}
+
+.hw-check-box-data {
+  cursor: pointer;
+  padding: 0px 4px;
+  color: theme-var($--color-primary);
+  position: relative;
+  min-width: 20px;
+  min-height: 20px;
+
+  &.hw-disabled {
+    cursor: not-allowed;
+    }
+  }
+
+.hw-check-box-icon {
+  transition: opacity 0.5s ease-in-out;
+  opacity: 0;
+  transform: scale(1.4);
+  font-size: $c-font-size;
+  position: absolute;
+  bottom: 2px;
+
+  &.hw-visible {
+    opacity: 1;
+    }
+
+  &.hw-invisible {
+    opacity: 0;
+    }
+  }

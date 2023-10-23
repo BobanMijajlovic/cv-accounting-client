@@ -1,0 +1,45 @@
+query bankHeaderTransactions($limit: Int,$offset: Int, $page: Int, $perPage: Int, $sort: Sorting, $filter: JSON  ,$include: JSON) {
+    data: bankHeaderTransactions(limit:$limit,offset:$offset, page: $page, perPage:$perPage, sort:$sort, filter:$filter,include: $include) {
+        items{
+            ...bankHeaderTransactionDetails
+        }
+        count
+        perPage
+        page
+    }
+}
+
+
+query bankHeaderTransaction($id: Int!){
+    bankHeaderTransaction:bankHeaderTransaction(id:$id) {
+        ...bankHeaderTransactionDetails
+    }
+}
+
+
+query totalTransactionByAccount($bankAccountId: Int!) {
+    bankAccountBalance: totalTransactionByAccount(bankAccountId: $bankAccountId) {
+        financeOwes
+        financeClaims
+    }
+}
+
+mutation insertBankHeaderTransactions($data: BankTransactionType!){
+    bankHeaderTransaction:insertBankHeaderTransactions(data:$data){
+        ...bankHeaderTransactionDetails
+    }
+}
+
+mutation updateBankHeaderTransactions($id: Int!,$data: BankTransactionType!){
+    bankHeaderTransaction:updateBankHeaderTransactions(id: $id,data:$data){
+        ...bankHeaderTransactionDetails
+    }
+}
+
+
+
+mutation uploadBankReport($file: Upload!,$id: Int!) {
+    data: uploadBankReport(file:$file, id: $id) {
+        ...bankHeaderTransactionDetails
+    }
+}

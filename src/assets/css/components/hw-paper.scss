@@ -1,0 +1,44 @@
+
+.hw-paper{
+  @include grd (to top left, $list2);
+  padding: 10px 15px 20px ;
+  min-width: 350px;
+  border-radius: 3px;
+  box-shadow: $boxShadowPaper;
+  position: relative;
+
+  @media screen and (max-width: $c-mobile-version-width) {
+    padding: 5px 15px 0px;
+  }
+
+  .hw-paper-header{
+    box-shadow: 0 4px 5px 0px rgba(0, 0, 0, 0.14), 0 7px 5px -5px #1a2c41;
+    background-color: #175d84;
+    min-width: 120px;
+    position: static;
+    padding: 2px 4px;
+    float: right;
+    margin-right: -30px;
+    text-align: center;
+
+    .hw-paper-header-name{
+      color: white;
+      font-weight: bold;
+      font-size: 12px;
+      text-shadow: $textShadowDefault;
+      text-transform: uppercase;
+    }
+
+    @media screen and (max-width: $c-mobile-version-width) {
+      margin-right: -20px;
+    }
+  }
+
+  .hw-paper-body {
+      padding: 35px 10px 10px;
+    @media screen and (max-width: $c-mobile-version-width) {
+      padding: 26px 10px 10px;
+    }
+  }
+
+}

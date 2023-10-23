@@ -1,0 +1,99 @@
+
+.warehouse-form-root {
+  width: 550px;
+  max-width: 550px;
+}
+
+.warehouse-item-table-dates-part {
+  .hw-input-text-date-picker {
+    max-width: 140px;
+  }
+}
+
+.warehouse-item-preview-part {
+  min-width: 250px;
+}
+
+.warehouse-item-customer-part {
+  position: relative;
+  min-width: 160px;
+  max-width: 300px;
+}
+
+.warehouse-view-render {
+  min-width: 300px;
+  max-width: 350px;
+}
+
+.warehouse-search-view {
+  max-height: calc(80vh - 80px);
+  height: calc(80vh - 80px);
+}
+
+
+.warehouse-item-finance-part {
+  padding: 2px 7px;
+  background: rgba(241, 241, 241, 0.3);
+  min-width: 350px;
+}
+
+.warehouse-select-root {
+  min-width: 200px;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+
+.warehouse-item-table-search-part {
+  padding: 1px 10px;
+  background: rgba(241, 241, 241, 0.3);
+}
+
+.warehouse-finance-table-head {
+  & > div {
+    text-align: center;
+    flex: 1;
+    border-right: 1px solid #eee;
+  }
+
+}
+.warehouse-finance-description {
+  min-width: 350px;
+}
+
+.warehouse-finance-table-row {
+  & > div {
+    text-align: center;
+    flex: 1;
+    color: #475054;
+    vertical-align: middle;
+    font-weight: 300;
+    padding: 2px 4px;
+    font-size: 14px;
+  }
+}
+
+.warehouse-finance-summary-table {
+  max-width: 400px;
+  min-width: 350px;
+  .summary-title {
+    text-transform: uppercase;
+    text-align: left;
+    font-size: 13px;
+    min-width: 100px;
+    max-width: 100px;
+  }
+}
+
+
+.hw-warehouse-transfer-form-root {
+  max-width: 950px;
+}
+
+
+.hw-warehouse-transfer-preview-root {
+  min-width: 850px;
+  max-width: 900px;
+  min-height: 350px;
+  max-height: 80%;
+}

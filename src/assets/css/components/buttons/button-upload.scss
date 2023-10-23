@@ -1,0 +1,95 @@
+
+
+.button-upload-root {
+  
+  .btn {
+    @include allButtonsDefault($buttonStandardColor);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    text-align: center;
+    padding: 8px 12px;
+    min-width: 120px;
+    font-size: $c-font-button-size;
+    background: none;
+    line-height: 1.5;
+    border-radius: 3px;
+    color: theme-var($--color-primary-font);
+    box-shadow: $boxShadow;
+    font-weight: 500;
+    @media screen and (max-width: $c-mobile-version-width) {
+      min-width: 60px;
+    }
+
+    &.outline {
+      color: theme-var($--color-primary);
+
+      .hw-button-icon {
+        top: 8px;
+        color: theme-var($--color-primary);
+      }
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:active {
+      opacity: 0.9;
+      transform: scale(0.98);
+    }
+
+    &.primary {
+      @include allButtonsDefault(theme-var($--color-primary));
+
+      &:focus {
+        box-shadow: 0 0 0 0.2rem theme-var($--color-primary-outline);
+      }
+    }
+
+    &.secondary {
+      @include allButtonsDefault(theme-var($--color-secondary));
+    }
+
+    &.success {
+      @include allButtonsDefault($buttonSuccessColor);
+    }
+
+    &.danger {
+      @include allButtonsDefault($buttonDangerColor);
+
+      &:focus {
+        box-shadow: 0 0 0 0.2rem theme-var($--color-danger-outline);
+      }
+    }
+
+    &.info {
+      @include allButtonsDefault($buttonInfoColor);
+    }
+
+    &.sm {
+      padding: 4px 8px;
+      font-size: $c-font-button-size - 2px;
+      min-width: 80px;
+    }
+
+    &.lg {
+      min-width: 150px;
+      padding: $buttonSizeLg;
+    }
+
+    &.glossy {
+      background-image: linear-gradient(180deg, hsla(0, 0%, 100%, 0.3), hsla(0, 0%, 100%, 0) 50%, rgba(0, 0, 0, 0.12) 51%, rgba(0, 0, 0, 0.04));
+    }
+  }
+
+
+  input {
+    display: none;
+  }
+
+
+}

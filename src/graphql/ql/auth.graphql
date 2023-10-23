@@ -1,0 +1,26 @@
+query authLogin($data: AuthUserLogin!) {
+    data: authLogin(data: $data) {
+        token
+        user {
+            ...userDetails
+        }
+    }
+}
+
+mutation authPasswordRecovery($email: String!) {
+    data: authPasswordRecovery(email:$email)
+}
+
+mutation authRegistration ($data: AuthUserRegister!){
+    data: authRegistration(data:$data)
+}
+
+
+mutation authPasswordChange ($data: AuthUserChangePassword!){
+    data: authPasswordChange(data:$data)
+}
+
+
+mutation authConfirmation ($key: String!){
+    data: authConfirmation(key:$key)
+}
